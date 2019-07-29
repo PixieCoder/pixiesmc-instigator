@@ -1,0 +1,7 @@
+settings/secrets.json
+package-lock.json
+dist
+.idea
+node_modules
+*.swp
+*.swo

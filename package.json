@@ -2,18 +2,37 @@
   "name": "pixiesmc-instigator",
   "version": "0.0.1",
   "description": "Admin console for Pixie'S MC",
-  "main": "index.js",
   "scripts": {
+    "build": "rm -rf dist/* && webpack",
+    "dev": "rm -rf dist/* &&  webpack-dev-server --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/PixieCoder/pixiesmc-instigator.git"
   },
-  "author": "filip.gberg@gmail.com",
+  "author": "Filip Joelsson",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/PixieCoder/pixiesmc-instigator/issues"
   },
-  "homepage": "https://github.com/PixieCoder/pixiesmc-instigator#readme"
+  "homepage": "https://github.com/PixieCoder/pixiesmc-instigator#readme",
+  "dependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "lodash": "^4.17.15",
+    "webpack": "^4.38.0",
+    "webpack-cli": "^3.3.6"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "webpack-dev-server": "^3.7.2"
+  }
 }
