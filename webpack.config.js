@@ -22,10 +22,17 @@ const config = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      {
+        test: /\.tpl\.html$/,
+        use: ['webpack-lodash-template-loader'],
+      }
     ],
   },
   plugins: [
     new webpack.ProgressPlugin(),
+    new webpack.ProvidePlugin({
+      _: 'lodash',
+    }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './assets/index.html',
