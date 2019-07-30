@@ -13,7 +13,7 @@ const config = {
   devServer: {
     contentBase: path.join(__dirname, 'assets'),
     compress: true,
-    port: 8089,
+    port: 3000,
   },
 };
 
