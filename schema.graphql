@@ -1,0 +1,4138 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+    subscription: Subscription
+}
+
+"An object with an ID"
+interface Node {
+    "The id of the object."
+    id: ID!
+}
+
+type AddToFileOnOrgPayload {
+    filesFile: File
+    orgOrg: Org
+}
+
+type AddToFooterOnOrgPayload {
+    footersFooter: Footer
+    orgOrg: Org
+}
+
+type AddToHeaderOnFilePayload {
+    headersHeader: Header
+    logoFile: File
+}
+
+type AddToImageOnFilePayload {
+    fileFile: File
+    imagesImage: Image
+}
+
+type AddToImageOnOrgPayload {
+    imagesImage: Image
+    orgOrg: Org
+}
+
+type AddToOrgOnHeaderPayload {
+    headersHeader: Header
+    orgOrg: Org
+}
+
+type AddToPageOnFooterPayload {
+    footerFooter: Footer
+    pagesPage: Page
+}
+
+type AddToPageOnOrgPayload {
+    orgOrg: Org
+    pagesPage: Page
+}
+
+type AddToPageOnPagePayload {
+    menuChildPage: Page
+    menuParentPage: Page
+}
+
+type AddToPageOnSectionPayload {
+    pagesPage: Page
+    sectionsSection: Section
+}
+
+type AddToSectionOnImagePayload {
+    imageImage: Image
+    sectionsSection: Section
+}
+
+type AddToSectionOnOrgPayload {
+    orgOrg: Org
+    sectionsSection: Section
+}
+
+type AddToUserOnOrgPayload {
+    orgsOrg: Org
+    usersUser: User
+}
+
+type File implements Node {
+    "Meta information about the query."
+    _headersMeta(after: String, before: String, filter: HeaderFilter, first: Int, last: Int, orderBy: HeaderOrderBy, skip: Int): _QueryMeta!
+    "Meta information about the query."
+    _imagesMeta(after: String, before: String, filter: ImageFilter, first: Int, last: Int, orderBy: ImageOrderBy, skip: Int): _QueryMeta!
+    contentType: String!
+    createdAt: DateTime!
+    headers(after: String, before: String, filter: HeaderFilter, first: Int, last: Int, orderBy: HeaderOrderBy, skip: Int): [Header!]
+    id: ID!
+    images(after: String, before: String, filter: ImageFilter, first: Int, last: Int, orderBy: ImageOrderBy, skip: Int): [Image!]
+    name: String!
+    org(filter: OrgFilter): Org
+    secret: String!
+    size: Int!
+    updatedAt: DateTime!
+    url: String!
+}
+
+type FilePreviousValues {
+    contentType: String!
+    createdAt: DateTime!
+    id: ID!
+    name: String!
+    secret: String!
+    size: Int!
+    updatedAt: DateTime!
+    url: String!
+}
+
+type FileSubscriptionPayload {
+    mutation: _ModelMutationType!
+    node: File
+    previousValues: FilePreviousValues
+    updatedFields: [String!]
+}
+
+type Footer implements Node {
+    "Meta information about the query."
+    _pagesMeta(after: String, before: String, filter: PageFilter, first: Int, last: Int, orderBy: PageOrderBy, skip: Int): _QueryMeta!
+    address: String!
+    color: String!
+    email: String!
+    id: ID!
+    lang: String!
+    org(filter: OrgFilter): Org
+    orgDef(filter: OrgFilter): Org
+    pages(after: String, before: String, filter: PageFilter, first: Int, last: Int, orderBy: PageOrderBy, skip: Int): [Page!]
+    phone: String!
+    town: String!
+}
+
+type FooterPreviousValues {
+    address: String!
+    color: String!
+    email: String!
+    id: ID!
+    lang: String!
+    phone: String!
+    town: String!
+}
+
+type FooterSubscriptionPayload {
+    mutation: _ModelMutationType!
+    node: Footer
+    previousValues: FooterPreviousValues
+    updatedFields: [String!]
+}
+
+type Header implements Node {
+    color: String!
+    id: ID!
+    lang: String!
+    logo(filter: FileFilter): File
+    logoDescription: String!
+    org(filter: OrgFilter): Org
+    orgDef(filter: OrgFilter): Org
+    page(filter: PageFilter): Page
+    tagline: String!
+}
+
+type HeaderPreviousValues {
+    color: String!
+    id: ID!
+    lang: String!
+    logoDescription: String!
+    tagline: String!
+}
+
+type HeaderSubscriptionPayload {
+    mutation: _ModelMutationType!
+    node: Header
+    previousValues: HeaderPreviousValues
+    updatedFields: [String!]
+}
+
+type Image implements Node {
+    "Meta information about the query."
+    _sectionsMeta(after: String, before: String, filter: SectionFilter, first: Int, last: Int, orderBy: SectionOrderBy, skip: Int): _QueryMeta!
+    caption: String!
+    description: String!
+    file(filter: FileFilter): File
+    id: ID!
+    lang: String!
+    org(filter: OrgFilter): Org
+    page(filter: PageFilter): Page
+    sections(after: String, before: String, filter: SectionFilter, first: Int, last: Int, orderBy: SectionOrderBy, skip: Int): [Section!]
+}
+
+type ImagePreviousValues {
+    caption: String!
+    description: String!
+    id: ID!
+    lang: String!
+}
+
+type ImageSubscriptionPayload {
+    mutation: _ModelMutationType!
+    node: Image
+    previousValues: ImagePreviousValues
+    updatedFields: [String!]
+}
+
+type InvokeFunctionPayload {
+    clientMutationId: String
+    result: String!
+}
+
+type Mutation {
+    addToFileOnOrg(filesFileId: ID!, orgOrgId: ID!): AddToFileOnOrgPayload
+    addToFooterOnOrg(footersFooterId: ID!, orgOrgId: ID!): AddToFooterOnOrgPayload
+    addToHeaderOnFile(headersHeaderId: ID!, logoFileId: ID!): AddToHeaderOnFilePayload
+    addToImageOnFile(fileFileId: ID!, imagesImageId: ID!): AddToImageOnFilePayload
+    addToImageOnOrg(imagesImageId: ID!, orgOrgId: ID!): AddToImageOnOrgPayload
+    addToOrgOnHeader(headersHeaderId: ID!, orgOrgId: ID!): AddToOrgOnHeaderPayload
+    addToPageOnFooter(footerFooterId: ID!, pagesPageId: ID!): AddToPageOnFooterPayload
+    addToPageOnOrg(orgOrgId: ID!, pagesPageId: ID!): AddToPageOnOrgPayload
+    addToPageOnPage(menuChildPageId: ID!, menuParentPageId: ID!): AddToPageOnPagePayload
+    addToPageOnSection(pagesPageId: ID!, sectionsSectionId: ID!): AddToPageOnSectionPayload
+    addToSectionOnImage(imageImageId: ID!, sectionsSectionId: ID!): AddToSectionOnImagePayload
+    addToSectionOnOrg(orgOrgId: ID!, sectionsSectionId: ID!): AddToSectionOnOrgPayload
+    addToUserOnOrg(orgsOrgId: ID!, usersUserId: ID!): AddToUserOnOrgPayload
+    createFile(headers: [FileheadersHeader!], headersIds: [ID!], images: [FileimagesImage!], imagesIds: [ID!], name: String!, org: FileorgOrg, orgId: ID): File
+    createFooter(address: String!, color: String!, email: String!, lang: String!, org: FooterorgOrg, orgDef: FooterorgDefOrg, orgDefId: ID, orgId: ID, pages: [FooterpagesPage!], pagesIds: [ID!], phone: String!, town: String!): Footer
+    createHeader(color: String!, lang: String!, logo: HeaderlogoFile, logoDescription: String!, logoId: ID, org: HeaderorgOrg, orgDef: HeaderorgDefOrg, orgDefId: ID, orgId: ID, page: HeaderpagePage, pageId: ID, tagline: String!): Header
+    createImage(caption: String!, description: String!, file: ImagefileFile, fileId: ID, lang: String!, org: ImageorgOrg, orgId: ID, page: ImagepagePage, pageId: ID, sections: [ImagesectionsSection!], sectionsIds: [ID!]): Image
+    createOrg(defaultFooter: OrgdefaultFooterFooter, defaultFooterId: ID, defaultHeader: OrgdefaultHeaderHeader, defaultHeaderId: ID, defaultLang: String, files: [OrgfilesFile!], filesIds: [ID!], footers: [OrgfootersFooter!], footersIds: [ID!], headers: [OrgheadersHeader!], headersIds: [ID!], images: [OrgimagesImage!], imagesIds: [ID!], name: String!, pages: [OrgpagesPage!], pagesIds: [ID!], sections: [OrgsectionsSection!], sectionsIds: [ID!], theme: String, title: String!, usersIds: [ID!]): Org
+    createPage(conclusion: String, footer: PagefooterFooter, footerId: ID, header: PageheaderHeader, headerId: ID, image: PageimageImage, imageId: ID, lang: String!, link: String!, menuChild: [PagemenuChildPage!], menuChildIds: [ID!], menuParent: PagemenuChildPage, menuParentId: ID, menuStatus: MenuStatus, org: PageorgOrg, orgId: ID, preamble: String, sections: [PagesectionsSection!], sectionsIds: [ID!], title: String!): Page
+    createSection(image: SectionimageImage, imageId: ID, lang: String!, org: SectionorgOrg, orgId: ID, pages: [SectionpagesPage!], pagesIds: [ID!], text: String!, title: String!): Section
+    createUser(authProvider: AuthProviderSignupData!, orgs: [UserorgsOrg!], orgsIds: [ID!], role: Roles, username: String): User
+    deleteFile(id: ID!): File
+    deleteFooter(id: ID!): Footer
+    deleteHeader(id: ID!): Header
+    deleteImage(id: ID!): Image
+    deleteOrg(id: ID!): Org
+    deletePage(id: ID!): Page
+    deleteSection(id: ID!): Section
+    deleteUser(id: ID!): User
+    invokeFunction(input: InvokeFunctionInput!): InvokeFunctionPayload
+    removeFromFileOnOrg(filesFileId: ID!, orgOrgId: ID!): RemoveFromFileOnOrgPayload
+    removeFromFooterOnOrg(footersFooterId: ID!, orgOrgId: ID!): RemoveFromFooterOnOrgPayload
+    removeFromHeaderOnFile(headersHeaderId: ID!, logoFileId: ID!): RemoveFromHeaderOnFilePayload
+    removeFromImageOnFile(fileFileId: ID!, imagesImageId: ID!): RemoveFromImageOnFilePayload
+    removeFromImageOnOrg(imagesImageId: ID!, orgOrgId: ID!): RemoveFromImageOnOrgPayload
+    removeFromOrgOnHeader(headersHeaderId: ID!, orgOrgId: ID!): RemoveFromOrgOnHeaderPayload
+    removeFromPageOnFooter(footerFooterId: ID!, pagesPageId: ID!): RemoveFromPageOnFooterPayload
+    removeFromPageOnOrg(orgOrgId: ID!, pagesPageId: ID!): RemoveFromPageOnOrgPayload
+    removeFromPageOnPage(menuChildPageId: ID!, menuParentPageId: ID!): RemoveFromPageOnPagePayload
+    removeFromPageOnSection(pagesPageId: ID!, sectionsSectionId: ID!): RemoveFromPageOnSectionPayload
+    removeFromSectionOnImage(imageImageId: ID!, sectionsSectionId: ID!): RemoveFromSectionOnImagePayload
+    removeFromSectionOnOrg(orgOrgId: ID!, sectionsSectionId: ID!): RemoveFromSectionOnOrgPayload
+    removeFromUserOnOrg(orgsOrgId: ID!, usersUserId: ID!): RemoveFromUserOnOrgPayload
+    setOrgOnFooter(defaultFooterFooterId: ID!, orgDefOrgId: ID!): SetOrgOnFooterPayload
+    setOrgOnHeader1(defaultHeaderHeaderId: ID!, orgDefOrgId: ID!): SetOrgOnHeader1Payload
+    setPageOnHeader(headerHeaderId: ID!, pagePageId: ID!): SetPageOnHeaderPayload
+    setPageOnImage(imageImageId: ID!, pagePageId: ID!): SetPageOnImagePayload
+    signinUser(auth0: AUTH_PROVIDER_AUTH0): SigninPayload!
+    unsetOrgOnFooter(defaultFooterFooterId: ID!, orgDefOrgId: ID!): UnsetOrgOnFooterPayload
+    unsetOrgOnHeader1(defaultHeaderHeaderId: ID!, orgDefOrgId: ID!): UnsetOrgOnHeader1Payload
+    unsetPageOnHeader(headerHeaderId: ID!, pagePageId: ID!): UnsetPageOnHeaderPayload
+    unsetPageOnImage(imageImageId: ID!, pagePageId: ID!): UnsetPageOnImagePayload
+    updateFile(headers: [FileheadersHeader!], headersIds: [ID!], id: ID!, images: [FileimagesImage!], imagesIds: [ID!], name: String, org: FileorgOrg, orgId: ID): File
+    updateFooter(address: String, color: String, email: String, id: ID!, lang: String, org: FooterorgOrg, orgDef: FooterorgDefOrg, orgDefId: ID, orgId: ID, pages: [FooterpagesPage!], pagesIds: [ID!], phone: String, town: String): Footer
+    updateHeader(color: String, id: ID!, lang: String, logo: HeaderlogoFile, logoDescription: String, logoId: ID, org: HeaderorgOrg, orgDef: HeaderorgDefOrg, orgDefId: ID, orgId: ID, page: HeaderpagePage, pageId: ID, tagline: String): Header
+    updateImage(caption: String, description: String, file: ImagefileFile, fileId: ID, id: ID!, lang: String, org: ImageorgOrg, orgId: ID, page: ImagepagePage, pageId: ID, sections: [ImagesectionsSection!], sectionsIds: [ID!]): Image
+    updateOrCreateFile(create: CreateFile!, update: UpdateFile!): File
+    updateOrCreateFooter(create: CreateFooter!, update: UpdateFooter!): Footer
+    updateOrCreateHeader(create: CreateHeader!, update: UpdateHeader!): Header
+    updateOrCreateImage(create: CreateImage!, update: UpdateImage!): Image
+    updateOrCreateOrg(create: CreateOrg!, update: UpdateOrg!): Org
+    updateOrCreatePage(create: CreatePage!, update: UpdatePage!): Page
+    updateOrCreateSection(create: CreateSection!, update: UpdateSection!): Section
+    updateOrCreateUser(create: CreateUser!, update: UpdateUser!): User
+    updateOrg(defaultFooter: OrgdefaultFooterFooter, defaultFooterId: ID, defaultHeader: OrgdefaultHeaderHeader, defaultHeaderId: ID, defaultLang: String, files: [OrgfilesFile!], filesIds: [ID!], footers: [OrgfootersFooter!], footersIds: [ID!], headers: [OrgheadersHeader!], headersIds: [ID!], id: ID!, images: [OrgimagesImage!], imagesIds: [ID!], name: String, pages: [OrgpagesPage!], pagesIds: [ID!], sections: [OrgsectionsSection!], sectionsIds: [ID!], theme: String, title: String, usersIds: [ID!]): Org
+    updatePage(conclusion: String, footer: PagefooterFooter, footerId: ID, header: PageheaderHeader, headerId: ID, id: ID!, image: PageimageImage, imageId: ID, lang: String, link: String, menuChild: [PagemenuChildPage!], menuChildIds: [ID!], menuParent: PagemenuChildPage, menuParentId: ID, menuStatus: MenuStatus, org: PageorgOrg, orgId: ID, preamble: String, sections: [PagesectionsSection!], sectionsIds: [ID!], title: String): Page
+    updateSection(id: ID!, image: SectionimageImage, imageId: ID, lang: String, org: SectionorgOrg, orgId: ID, pages: [SectionpagesPage!], pagesIds: [ID!], text: String, title: String): Section
+    updateUser(id: ID!, orgs: [UserorgsOrg!], orgsIds: [ID!], role: Roles, username: String): User
+}
+
+type Org implements Node {
+    "Meta information about the query."
+    _filesMeta(after: String, before: String, filter: FileFilter, first: Int, last: Int, orderBy: FileOrderBy, skip: Int): _QueryMeta!
+    "Meta information about the query."
+    _footersMeta(after: String, before: String, filter: FooterFilter, first: Int, last: Int, orderBy: FooterOrderBy, skip: Int): _QueryMeta!
+    "Meta information about the query."
+    _headersMeta(after: String, before: String, filter: HeaderFilter, first: Int, last: Int, orderBy: HeaderOrderBy, skip: Int): _QueryMeta!
+    "Meta information about the query."
+    _imagesMeta(after: String, before: String, filter: ImageFilter, first: Int, last: Int, orderBy: ImageOrderBy, skip: Int): _QueryMeta!
+    "Meta information about the query."
+    _pagesMeta(after: String, before: String, filter: PageFilter, first: Int, last: Int, orderBy: PageOrderBy, skip: Int): _QueryMeta!
+    "Meta information about the query."
+    _sectionsMeta(after: String, before: String, filter: SectionFilter, first: Int, last: Int, orderBy: SectionOrderBy, skip: Int): _QueryMeta!
+    "Meta information about the query."
+    _usersMeta(after: String, before: String, filter: UserFilter, first: Int, last: Int, orderBy: UserOrderBy, skip: Int): _QueryMeta!
+    defaultFooter(filter: FooterFilter): Footer
+    defaultHeader(filter: HeaderFilter): Header
+    defaultLang: String!
+    files(after: String, before: String, filter: FileFilter, first: Int, last: Int, orderBy: FileOrderBy, skip: Int): [File!]
+    footers(after: String, before: String, filter: FooterFilter, first: Int, last: Int, orderBy: FooterOrderBy, skip: Int): [Footer!]
+    headers(after: String, before: String, filter: HeaderFilter, first: Int, last: Int, orderBy: HeaderOrderBy, skip: Int): [Header!]
+    id: ID!
+    images(after: String, before: String, filter: ImageFilter, first: Int, last: Int, orderBy: ImageOrderBy, skip: Int): [Image!]
+    name: String!
+    pages(after: String, before: String, filter: PageFilter, first: Int, last: Int, orderBy: PageOrderBy, skip: Int): [Page!]
+    sections(after: String, before: String, filter: SectionFilter, first: Int, last: Int, orderBy: SectionOrderBy, skip: Int): [Section!]
+    theme: String
+    title: String!
+    users(after: String, before: String, filter: UserFilter, first: Int, last: Int, orderBy: UserOrderBy, skip: Int): [User!]
+}
+
+type OrgPreviousValues {
+    defaultLang: String!
+    id: ID!
+    name: String!
+    theme: String
+    title: String!
+}
+
+type OrgSubscriptionPayload {
+    mutation: _ModelMutationType!
+    node: Org
+    previousValues: OrgPreviousValues
+    updatedFields: [String!]
+}
+
+type Page implements Node {
+    "Meta information about the query."
+    _menuChildMeta(after: String, before: String, filter: PageFilter, first: Int, last: Int, orderBy: PageOrderBy, skip: Int): _QueryMeta!
+    "Meta information about the query."
+    _sectionsMeta(after: String, before: String, filter: SectionFilter, first: Int, last: Int, orderBy: SectionOrderBy, skip: Int): _QueryMeta!
+    conclusion: String
+    footer(filter: FooterFilter): Footer
+    header(filter: HeaderFilter): Header
+    id: ID!
+    image(filter: ImageFilter): Image
+    lang: String!
+    link: String!
+    menuChild(after: String, before: String, filter: PageFilter, first: Int, last: Int, orderBy: PageOrderBy, skip: Int): [Page!]
+    menuParent(filter: PageFilter): Page
+    menuStatus: MenuStatus!
+    org(filter: OrgFilter): Org
+    preamble: String
+    sections(after: String, before: String, filter: SectionFilter, first: Int, last: Int, orderBy: SectionOrderBy, skip: Int): [Section!]
+    title: String!
+}
+
+type PagePreviousValues {
+    conclusion: String
+    id: ID!
+    lang: String!
+    link: String!
+    menuStatus: MenuStatus!
+    preamble: String
+    title: String!
+}
+
+type PageSubscriptionPayload {
+    mutation: _ModelMutationType!
+    node: Page
+    previousValues: PagePreviousValues
+    updatedFields: [String!]
+}
+
+type Query {
+    File(id: ID, secret: String, url: String): File
+    Footer(id: ID): Footer
+    Header(id: ID): Header
+    Image(id: ID): Image
+    Org(id: ID): Org
+    Page(id: ID): Page
+    Section(id: ID): Section
+    User(auth0UserId: String, id: ID): User
+    _allFilesMeta(after: String, before: String, filter: FileFilter, first: Int, last: Int, orderBy: FileOrderBy, skip: Int): _QueryMeta!
+    _allFootersMeta(after: String, before: String, filter: FooterFilter, first: Int, last: Int, orderBy: FooterOrderBy, skip: Int): _QueryMeta!
+    _allHeadersMeta(after: String, before: String, filter: HeaderFilter, first: Int, last: Int, orderBy: HeaderOrderBy, skip: Int): _QueryMeta!
+    _allImagesMeta(after: String, before: String, filter: ImageFilter, first: Int, last: Int, orderBy: ImageOrderBy, skip: Int): _QueryMeta!
+    _allOrgsMeta(after: String, before: String, filter: OrgFilter, first: Int, last: Int, orderBy: OrgOrderBy, skip: Int): _QueryMeta!
+    _allPagesMeta(after: String, before: String, filter: PageFilter, first: Int, last: Int, orderBy: PageOrderBy, skip: Int): _QueryMeta!
+    _allSectionsMeta(after: String, before: String, filter: SectionFilter, first: Int, last: Int, orderBy: SectionOrderBy, skip: Int): _QueryMeta!
+    _allUsersMeta(after: String, before: String, filter: UserFilter, first: Int, last: Int, orderBy: UserOrderBy, skip: Int): _QueryMeta!
+    allFiles(after: String, before: String, filter: FileFilter, first: Int, last: Int, orderBy: FileOrderBy, skip: Int): [File!]!
+    allFooters(after: String, before: String, filter: FooterFilter, first: Int, last: Int, orderBy: FooterOrderBy, skip: Int): [Footer!]!
+    allHeaders(after: String, before: String, filter: HeaderFilter, first: Int, last: Int, orderBy: HeaderOrderBy, skip: Int): [Header!]!
+    allImages(after: String, before: String, filter: ImageFilter, first: Int, last: Int, orderBy: ImageOrderBy, skip: Int): [Image!]!
+    allOrgs(after: String, before: String, filter: OrgFilter, first: Int, last: Int, orderBy: OrgOrderBy, skip: Int): [Org!]!
+    allPages(after: String, before: String, filter: PageFilter, first: Int, last: Int, orderBy: PageOrderBy, skip: Int): [Page!]!
+    allSections(after: String, before: String, filter: SectionFilter, first: Int, last: Int, orderBy: SectionOrderBy, skip: Int): [Section!]!
+    allUsers(after: String, before: String, filter: UserFilter, first: Int, last: Int, orderBy: UserOrderBy, skip: Int): [User!]!
+    "Fetches an object given its ID"
+    node(
+        #The ID of an object
+        id: ID!
+    ): Node
+    user: User
+}
+
+type RemoveFromFileOnOrgPayload {
+    filesFile: File
+    orgOrg: Org
+}
+
+type RemoveFromFooterOnOrgPayload {
+    footersFooter: Footer
+    orgOrg: Org
+}
+
+type RemoveFromHeaderOnFilePayload {
+    headersHeader: Header
+    logoFile: File
+}
+
+type RemoveFromImageOnFilePayload {
+    fileFile: File
+    imagesImage: Image
+}
+
+type RemoveFromImageOnOrgPayload {
+    imagesImage: Image
+    orgOrg: Org
+}
+
+type RemoveFromOrgOnHeaderPayload {
+    headersHeader: Header
+    orgOrg: Org
+}
+
+type RemoveFromPageOnFooterPayload {
+    footerFooter: Footer
+    pagesPage: Page
+}
+
+type RemoveFromPageOnOrgPayload {
+    orgOrg: Org
+    pagesPage: Page
+}
+
+type RemoveFromPageOnPagePayload {
+    menuChildPage: Page
+    menuParentPage: Page
+}
+
+type RemoveFromPageOnSectionPayload {
+    pagesPage: Page
+    sectionsSection: Section
+}
+
+type RemoveFromSectionOnImagePayload {
+    imageImage: Image
+    sectionsSection: Section
+}
+
+type RemoveFromSectionOnOrgPayload {
+    orgOrg: Org
+    sectionsSection: Section
+}
+
+type RemoveFromUserOnOrgPayload {
+    orgsOrg: Org
+    usersUser: User
+}
+
+type Section implements Node {
+    "Meta information about the query."
+    _pagesMeta(after: String, before: String, filter: PageFilter, first: Int, last: Int, orderBy: PageOrderBy, skip: Int): _QueryMeta!
+    id: ID!
+    image(filter: ImageFilter): Image
+    lang: String!
+    org(filter: OrgFilter): Org
+    pages(after: String, before: String, filter: PageFilter, first: Int, last: Int, orderBy: PageOrderBy, skip: Int): [Page!]
+    text: String!
+    title: String!
+}
+
+type SectionPreviousValues {
+    id: ID!
+    lang: String!
+    text: String!
+    title: String!
+}
+
+type SectionSubscriptionPayload {
+    mutation: _ModelMutationType!
+    node: Section
+    previousValues: SectionPreviousValues
+    updatedFields: [String!]
+}
+
+type SetOrgOnFooterPayload {
+    defaultFooterFooter: Footer
+    orgDefOrg: Org
+}
+
+type SetOrgOnHeader1Payload {
+    defaultHeaderHeader: Header
+    orgDefOrg: Org
+}
+
+type SetPageOnHeaderPayload {
+    headerHeader: Header
+    pagePage: Page
+}
+
+type SetPageOnImagePayload {
+    imageImage: Image
+    pagePage: Page
+}
+
+"If authentication was successful the payload contains the user and a token. If unsuccessful this payload is null."
+type SigninPayload {
+    token: String
+    user: User
+}
+
+type Subscription {
+    File(filter: FileSubscriptionFilter): FileSubscriptionPayload
+    Footer(filter: FooterSubscriptionFilter): FooterSubscriptionPayload
+    Header(filter: HeaderSubscriptionFilter): HeaderSubscriptionPayload
+    Image(filter: ImageSubscriptionFilter): ImageSubscriptionPayload
+    Org(filter: OrgSubscriptionFilter): OrgSubscriptionPayload
+    Page(filter: PageSubscriptionFilter): PageSubscriptionPayload
+    Section(filter: SectionSubscriptionFilter): SectionSubscriptionPayload
+    User(filter: UserSubscriptionFilter): UserSubscriptionPayload
+}
+
+type UnsetOrgOnFooterPayload {
+    defaultFooterFooter: Footer
+    orgDefOrg: Org
+}
+
+type UnsetOrgOnHeader1Payload {
+    defaultHeaderHeader: Header
+    orgDefOrg: Org
+}
+
+type UnsetPageOnHeaderPayload {
+    headerHeader: Header
+    pagePage: Page
+}
+
+type UnsetPageOnImagePayload {
+    imageImage: Image
+    pagePage: Page
+}
+
+type User implements Node {
+    "Meta information about the query."
+    _orgsMeta(after: String, before: String, filter: OrgFilter, first: Int, last: Int, orderBy: OrgOrderBy, skip: Int): _QueryMeta!
+    auth0UserId: String
+    createdAt: DateTime!
+    id: ID!
+    orgs(after: String, before: String, filter: OrgFilter, first: Int, last: Int, orderBy: OrgOrderBy, skip: Int): [Org!]
+    role: Roles!
+    updatedAt: DateTime!
+    username: String
+}
+
+type UserPreviousValues {
+    auth0UserId: String
+    createdAt: DateTime!
+    id: ID!
+    role: Roles!
+    updatedAt: DateTime!
+    username: String
+}
+
+type UserSubscriptionPayload {
+    mutation: _ModelMutationType!
+    node: User
+    previousValues: UserPreviousValues
+    updatedFields: [String!]
+}
+
+"Meta information about the query."
+type _QueryMeta {
+    count: Int!
+}
+
+enum FileOrderBy {
+    contentType_ASC
+    contentType_DESC
+    createdAt_ASC
+    createdAt_DESC
+    id_ASC
+    id_DESC
+    name_ASC
+    name_DESC
+    secret_ASC
+    secret_DESC
+    size_ASC
+    size_DESC
+    updatedAt_ASC
+    updatedAt_DESC
+    url_ASC
+    url_DESC
+}
+
+enum FooterOrderBy {
+    address_ASC
+    address_DESC
+    color_ASC
+    color_DESC
+    email_ASC
+    email_DESC
+    id_ASC
+    id_DESC
+    lang_ASC
+    lang_DESC
+    phone_ASC
+    phone_DESC
+    town_ASC
+    town_DESC
+}
+
+enum HeaderOrderBy {
+    color_ASC
+    color_DESC
+    id_ASC
+    id_DESC
+    lang_ASC
+    lang_DESC
+    logoDescription_ASC
+    logoDescription_DESC
+    tagline_ASC
+    tagline_DESC
+}
+
+enum ImageOrderBy {
+    caption_ASC
+    caption_DESC
+    description_ASC
+    description_DESC
+    id_ASC
+    id_DESC
+    lang_ASC
+    lang_DESC
+}
+
+enum MenuStatus {
+    Callout
+    None
+    Plain
+}
+
+enum OrgOrderBy {
+    defaultLang_ASC
+    defaultLang_DESC
+    id_ASC
+    id_DESC
+    name_ASC
+    name_DESC
+    theme_ASC
+    theme_DESC
+    title_ASC
+    title_DESC
+}
+
+enum PageOrderBy {
+    conclusion_ASC
+    conclusion_DESC
+    id_ASC
+    id_DESC
+    lang_ASC
+    lang_DESC
+    link_ASC
+    link_DESC
+    menuStatus_ASC
+    menuStatus_DESC
+    preamble_ASC
+    preamble_DESC
+    title_ASC
+    title_DESC
+}
+
+enum Roles {
+    Admin
+    Banned
+    Editor
+    New
+}
+
+enum SectionOrderBy {
+    id_ASC
+    id_DESC
+    lang_ASC
+    lang_DESC
+    text_ASC
+    text_DESC
+    title_ASC
+    title_DESC
+}
+
+enum UserOrderBy {
+    auth0UserId_ASC
+    auth0UserId_DESC
+    createdAt_ASC
+    createdAt_DESC
+    id_ASC
+    id_DESC
+    role_ASC
+    role_DESC
+    updatedAt_ASC
+    updatedAt_DESC
+    username_ASC
+    username_DESC
+}
+
+enum _ModelMutationType {
+    CREATED
+    DELETED
+    UPDATED
+}
+
+input AUTH_PROVIDER_AUTH0 {
+    "Is returned when calling any of the Auth0 functions which invoke authentication. This includes calls to the Lock widget, to the auth0.js library, or the libraries for other languages. See https://auth0.com/docs/tokens/id_token for more detail"
+    idToken: String!
+}
+
+input AuthProviderSignupData {
+    auth0: AUTH_PROVIDER_AUTH0
+}
+
+input CreateFile {
+    headers: [FileheadersHeader!]
+    headersIds: [ID!]
+    images: [FileimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    org: FileorgOrg
+    orgId: ID
+}
+
+input CreateFooter {
+    address: String!
+    color: String!
+    email: String!
+    lang: String!
+    org: FooterorgOrg
+    orgDef: FooterorgDefOrg
+    orgDefId: ID
+    orgId: ID
+    pages: [FooterpagesPage!]
+    pagesIds: [ID!]
+    phone: String!
+    town: String!
+}
+
+input CreateHeader {
+    color: String!
+    lang: String!
+    logo: HeaderlogoFile
+    logoDescription: String!
+    logoId: ID
+    org: HeaderorgOrg
+    orgDef: HeaderorgDefOrg
+    orgDefId: ID
+    orgId: ID
+    page: HeaderpagePage
+    pageId: ID
+    tagline: String!
+}
+
+input CreateImage {
+    caption: String!
+    description: String!
+    file: ImagefileFile
+    fileId: ID
+    lang: String!
+    org: ImageorgOrg
+    orgId: ID
+    page: ImagepagePage
+    pageId: ID
+    sections: [ImagesectionsSection!]
+    sectionsIds: [ID!]
+}
+
+input CreateOrg {
+    defaultFooter: OrgdefaultFooterFooter
+    defaultFooterId: ID
+    defaultHeader: OrgdefaultHeaderHeader
+    defaultHeaderId: ID
+    defaultLang: String
+    files: [OrgfilesFile!]
+    filesIds: [ID!]
+    footers: [OrgfootersFooter!]
+    footersIds: [ID!]
+    headers: [OrgheadersHeader!]
+    headersIds: [ID!]
+    images: [OrgimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    pages: [OrgpagesPage!]
+    pagesIds: [ID!]
+    sections: [OrgsectionsSection!]
+    sectionsIds: [ID!]
+    theme: String
+    title: String!
+    usersIds: [ID!]
+}
+
+input CreatePage {
+    conclusion: String
+    footer: PagefooterFooter
+    footerId: ID
+    header: PageheaderHeader
+    headerId: ID
+    image: PageimageImage
+    imageId: ID
+    lang: String!
+    link: String!
+    menuChild: [PagemenuChildPage!]
+    menuChildIds: [ID!]
+    menuParent: PagemenuChildPage
+    menuParentId: ID
+    menuStatus: MenuStatus
+    org: PageorgOrg
+    orgId: ID
+    preamble: String
+    sections: [PagesectionsSection!]
+    sectionsIds: [ID!]
+    title: String!
+}
+
+input CreateSection {
+    image: SectionimageImage
+    imageId: ID
+    lang: String!
+    org: SectionorgOrg
+    orgId: ID
+    pages: [SectionpagesPage!]
+    pagesIds: [ID!]
+    text: String!
+    title: String!
+}
+
+input CreateUser {
+    orgs: [UserorgsOrg!]
+    orgsIds: [ID!]
+    role: Roles
+    username: String
+}
+
+input FileFilter {
+    "Logical AND on all given filters."
+    AND: [FileFilter!]
+    "Logical OR on all given filters."
+    OR: [FileFilter!]
+    contentType: String
+    "All values containing the given string."
+    contentType_contains: String
+    "All values ending with the given string."
+    contentType_ends_with: String
+    "All values greater than the given value."
+    contentType_gt: String
+    "All values greater than or equal the given value."
+    contentType_gte: String
+    "All values that are contained in given list."
+    contentType_in: [String!]
+    "All values less than the given value."
+    contentType_lt: String
+    "All values less than or equal the given value."
+    contentType_lte: String
+    "All values that are not equal to given value."
+    contentType_not: String
+    "All values not containing the given string."
+    contentType_not_contains: String
+    "All values not ending with the given string."
+    contentType_not_ends_with: String
+    "All values that are not contained in given list."
+    contentType_not_in: [String!]
+    "All values not starting with the given string."
+    contentType_not_starts_with: String
+    "All values starting with the given string."
+    contentType_starts_with: String
+    createdAt: DateTime
+    "All values greater than the given value."
+    createdAt_gt: DateTime
+    "All values greater than or equal the given value."
+    createdAt_gte: DateTime
+    "All values that are contained in given list."
+    createdAt_in: [DateTime!]
+    "All values less than the given value."
+    createdAt_lt: DateTime
+    "All values less than or equal the given value."
+    createdAt_lte: DateTime
+    "All values that are not equal to given value."
+    createdAt_not: DateTime
+    "All values that are not contained in given list."
+    createdAt_not_in: [DateTime!]
+    headers_every: HeaderFilter
+    headers_none: HeaderFilter
+    headers_some: HeaderFilter
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    images_every: ImageFilter
+    images_none: ImageFilter
+    images_some: ImageFilter
+    name: String
+    "All values containing the given string."
+    name_contains: String
+    "All values ending with the given string."
+    name_ends_with: String
+    "All values greater than the given value."
+    name_gt: String
+    "All values greater than or equal the given value."
+    name_gte: String
+    "All values that are contained in given list."
+    name_in: [String!]
+    "All values less than the given value."
+    name_lt: String
+    "All values less than or equal the given value."
+    name_lte: String
+    "All values that are not equal to given value."
+    name_not: String
+    "All values not containing the given string."
+    name_not_contains: String
+    "All values not ending with the given string."
+    name_not_ends_with: String
+    "All values that are not contained in given list."
+    name_not_in: [String!]
+    "All values not starting with the given string."
+    name_not_starts_with: String
+    "All values starting with the given string."
+    name_starts_with: String
+    org: OrgFilter
+    secret: String
+    "All values containing the given string."
+    secret_contains: String
+    "All values ending with the given string."
+    secret_ends_with: String
+    "All values greater than the given value."
+    secret_gt: String
+    "All values greater than or equal the given value."
+    secret_gte: String
+    "All values that are contained in given list."
+    secret_in: [String!]
+    "All values less than the given value."
+    secret_lt: String
+    "All values less than or equal the given value."
+    secret_lte: String
+    "All values that are not equal to given value."
+    secret_not: String
+    "All values not containing the given string."
+    secret_not_contains: String
+    "All values not ending with the given string."
+    secret_not_ends_with: String
+    "All values that are not contained in given list."
+    secret_not_in: [String!]
+    "All values not starting with the given string."
+    secret_not_starts_with: String
+    "All values starting with the given string."
+    secret_starts_with: String
+    size: Int
+    "All values greater than the given value."
+    size_gt: Int
+    "All values greater than or equal the given value."
+    size_gte: Int
+    "All values that are contained in given list."
+    size_in: [Int!]
+    "All values less than the given value."
+    size_lt: Int
+    "All values less than or equal the given value."
+    size_lte: Int
+    "All values that are not equal to given value."
+    size_not: Int
+    "All values that are not contained in given list."
+    size_not_in: [Int!]
+    updatedAt: DateTime
+    "All values greater than the given value."
+    updatedAt_gt: DateTime
+    "All values greater than or equal the given value."
+    updatedAt_gte: DateTime
+    "All values that are contained in given list."
+    updatedAt_in: [DateTime!]
+    "All values less than the given value."
+    updatedAt_lt: DateTime
+    "All values less than or equal the given value."
+    updatedAt_lte: DateTime
+    "All values that are not equal to given value."
+    updatedAt_not: DateTime
+    "All values that are not contained in given list."
+    updatedAt_not_in: [DateTime!]
+    url: String
+    "All values containing the given string."
+    url_contains: String
+    "All values ending with the given string."
+    url_ends_with: String
+    "All values greater than the given value."
+    url_gt: String
+    "All values greater than or equal the given value."
+    url_gte: String
+    "All values that are contained in given list."
+    url_in: [String!]
+    "All values less than the given value."
+    url_lt: String
+    "All values less than or equal the given value."
+    url_lte: String
+    "All values that are not equal to given value."
+    url_not: String
+    "All values not containing the given string."
+    url_not_contains: String
+    "All values not ending with the given string."
+    url_not_ends_with: String
+    "All values that are not contained in given list."
+    url_not_in: [String!]
+    "All values not starting with the given string."
+    url_not_starts_with: String
+    "All values starting with the given string."
+    url_starts_with: String
+}
+
+input FileSubscriptionFilter {
+    "Logical AND on all given filters."
+    AND: [FileSubscriptionFilter!]
+    "Logical OR on all given filters."
+    OR: [FileSubscriptionFilter!]
+    "The subscription event gets dispatched when it's listed in mutation_in"
+    mutation_in: [_ModelMutationType!]
+    node: FileSubscriptionFilterNode
+    "The subscription event gets only dispatched when one of the updated fields names is included in this list"
+    updatedFields_contains: String
+    "The subscription event gets only dispatched when all of the field names included in this list have been updated"
+    updatedFields_contains_every: [String!]
+    "The subscription event gets only dispatched when some of the field names included in this list have been updated"
+    updatedFields_contains_some: [String!]
+}
+
+input FileSubscriptionFilterNode {
+    contentType: String
+    "All values containing the given string."
+    contentType_contains: String
+    "All values ending with the given string."
+    contentType_ends_with: String
+    "All values greater than the given value."
+    contentType_gt: String
+    "All values greater than or equal the given value."
+    contentType_gte: String
+    "All values that are contained in given list."
+    contentType_in: [String!]
+    "All values less than the given value."
+    contentType_lt: String
+    "All values less than or equal the given value."
+    contentType_lte: String
+    "All values that are not equal to given value."
+    contentType_not: String
+    "All values not containing the given string."
+    contentType_not_contains: String
+    "All values not ending with the given string."
+    contentType_not_ends_with: String
+    "All values that are not contained in given list."
+    contentType_not_in: [String!]
+    "All values not starting with the given string."
+    contentType_not_starts_with: String
+    "All values starting with the given string."
+    contentType_starts_with: String
+    createdAt: DateTime
+    "All values greater than the given value."
+    createdAt_gt: DateTime
+    "All values greater than or equal the given value."
+    createdAt_gte: DateTime
+    "All values that are contained in given list."
+    createdAt_in: [DateTime!]
+    "All values less than the given value."
+    createdAt_lt: DateTime
+    "All values less than or equal the given value."
+    createdAt_lte: DateTime
+    "All values that are not equal to given value."
+    createdAt_not: DateTime
+    "All values that are not contained in given list."
+    createdAt_not_in: [DateTime!]
+    headers_every: HeaderFilter
+    headers_none: HeaderFilter
+    headers_some: HeaderFilter
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    images_every: ImageFilter
+    images_none: ImageFilter
+    images_some: ImageFilter
+    name: String
+    "All values containing the given string."
+    name_contains: String
+    "All values ending with the given string."
+    name_ends_with: String
+    "All values greater than the given value."
+    name_gt: String
+    "All values greater than or equal the given value."
+    name_gte: String
+    "All values that are contained in given list."
+    name_in: [String!]
+    "All values less than the given value."
+    name_lt: String
+    "All values less than or equal the given value."
+    name_lte: String
+    "All values that are not equal to given value."
+    name_not: String
+    "All values not containing the given string."
+    name_not_contains: String
+    "All values not ending with the given string."
+    name_not_ends_with: String
+    "All values that are not contained in given list."
+    name_not_in: [String!]
+    "All values not starting with the given string."
+    name_not_starts_with: String
+    "All values starting with the given string."
+    name_starts_with: String
+    org: OrgFilter
+    secret: String
+    "All values containing the given string."
+    secret_contains: String
+    "All values ending with the given string."
+    secret_ends_with: String
+    "All values greater than the given value."
+    secret_gt: String
+    "All values greater than or equal the given value."
+    secret_gte: String
+    "All values that are contained in given list."
+    secret_in: [String!]
+    "All values less than the given value."
+    secret_lt: String
+    "All values less than or equal the given value."
+    secret_lte: String
+    "All values that are not equal to given value."
+    secret_not: String
+    "All values not containing the given string."
+    secret_not_contains: String
+    "All values not ending with the given string."
+    secret_not_ends_with: String
+    "All values that are not contained in given list."
+    secret_not_in: [String!]
+    "All values not starting with the given string."
+    secret_not_starts_with: String
+    "All values starting with the given string."
+    secret_starts_with: String
+    size: Int
+    "All values greater than the given value."
+    size_gt: Int
+    "All values greater than or equal the given value."
+    size_gte: Int
+    "All values that are contained in given list."
+    size_in: [Int!]
+    "All values less than the given value."
+    size_lt: Int
+    "All values less than or equal the given value."
+    size_lte: Int
+    "All values that are not equal to given value."
+    size_not: Int
+    "All values that are not contained in given list."
+    size_not_in: [Int!]
+    updatedAt: DateTime
+    "All values greater than the given value."
+    updatedAt_gt: DateTime
+    "All values greater than or equal the given value."
+    updatedAt_gte: DateTime
+    "All values that are contained in given list."
+    updatedAt_in: [DateTime!]
+    "All values less than the given value."
+    updatedAt_lt: DateTime
+    "All values less than or equal the given value."
+    updatedAt_lte: DateTime
+    "All values that are not equal to given value."
+    updatedAt_not: DateTime
+    "All values that are not contained in given list."
+    updatedAt_not_in: [DateTime!]
+    url: String
+    "All values containing the given string."
+    url_contains: String
+    "All values ending with the given string."
+    url_ends_with: String
+    "All values greater than the given value."
+    url_gt: String
+    "All values greater than or equal the given value."
+    url_gte: String
+    "All values that are contained in given list."
+    url_in: [String!]
+    "All values less than the given value."
+    url_lt: String
+    "All values less than or equal the given value."
+    url_lte: String
+    "All values that are not equal to given value."
+    url_not: String
+    "All values not containing the given string."
+    url_not_contains: String
+    "All values not ending with the given string."
+    url_not_ends_with: String
+    "All values that are not contained in given list."
+    url_not_in: [String!]
+    "All values not starting with the given string."
+    url_not_starts_with: String
+    "All values starting with the given string."
+    url_starts_with: String
+}
+
+input FileheadersHeader {
+    color: String!
+    lang: String!
+    logoDescription: String!
+    org: HeaderorgOrg
+    orgDef: HeaderorgDefOrg
+    orgDefId: ID
+    orgId: ID
+    page: HeaderpagePage
+    pageId: ID
+    tagline: String!
+}
+
+input FileimagesImage {
+    caption: String!
+    description: String!
+    lang: String!
+    org: ImageorgOrg
+    orgId: ID
+    page: ImagepagePage
+    pageId: ID
+    sections: [ImagesectionsSection!]
+    sectionsIds: [ID!]
+}
+
+input FileorgOrg {
+    defaultFooter: OrgdefaultFooterFooter
+    defaultFooterId: ID
+    defaultHeader: OrgdefaultHeaderHeader
+    defaultHeaderId: ID
+    defaultLang: String
+    files: [OrgfilesFile!]
+    filesIds: [ID!]
+    footers: [OrgfootersFooter!]
+    footersIds: [ID!]
+    headers: [OrgheadersHeader!]
+    headersIds: [ID!]
+    images: [OrgimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    pages: [OrgpagesPage!]
+    pagesIds: [ID!]
+    sections: [OrgsectionsSection!]
+    sectionsIds: [ID!]
+    theme: String
+    title: String!
+    usersIds: [ID!]
+}
+
+input FooterFilter {
+    "Logical AND on all given filters."
+    AND: [FooterFilter!]
+    "Logical OR on all given filters."
+    OR: [FooterFilter!]
+    address: String
+    "All values containing the given string."
+    address_contains: String
+    "All values ending with the given string."
+    address_ends_with: String
+    "All values greater than the given value."
+    address_gt: String
+    "All values greater than or equal the given value."
+    address_gte: String
+    "All values that are contained in given list."
+    address_in: [String!]
+    "All values less than the given value."
+    address_lt: String
+    "All values less than or equal the given value."
+    address_lte: String
+    "All values that are not equal to given value."
+    address_not: String
+    "All values not containing the given string."
+    address_not_contains: String
+    "All values not ending with the given string."
+    address_not_ends_with: String
+    "All values that are not contained in given list."
+    address_not_in: [String!]
+    "All values not starting with the given string."
+    address_not_starts_with: String
+    "All values starting with the given string."
+    address_starts_with: String
+    color: String
+    "All values containing the given string."
+    color_contains: String
+    "All values ending with the given string."
+    color_ends_with: String
+    "All values greater than the given value."
+    color_gt: String
+    "All values greater than or equal the given value."
+    color_gte: String
+    "All values that are contained in given list."
+    color_in: [String!]
+    "All values less than the given value."
+    color_lt: String
+    "All values less than or equal the given value."
+    color_lte: String
+    "All values that are not equal to given value."
+    color_not: String
+    "All values not containing the given string."
+    color_not_contains: String
+    "All values not ending with the given string."
+    color_not_ends_with: String
+    "All values that are not contained in given list."
+    color_not_in: [String!]
+    "All values not starting with the given string."
+    color_not_starts_with: String
+    "All values starting with the given string."
+    color_starts_with: String
+    email: String
+    "All values containing the given string."
+    email_contains: String
+    "All values ending with the given string."
+    email_ends_with: String
+    "All values greater than the given value."
+    email_gt: String
+    "All values greater than or equal the given value."
+    email_gte: String
+    "All values that are contained in given list."
+    email_in: [String!]
+    "All values less than the given value."
+    email_lt: String
+    "All values less than or equal the given value."
+    email_lte: String
+    "All values that are not equal to given value."
+    email_not: String
+    "All values not containing the given string."
+    email_not_contains: String
+    "All values not ending with the given string."
+    email_not_ends_with: String
+    "All values that are not contained in given list."
+    email_not_in: [String!]
+    "All values not starting with the given string."
+    email_not_starts_with: String
+    "All values starting with the given string."
+    email_starts_with: String
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    lang: String
+    "All values containing the given string."
+    lang_contains: String
+    "All values ending with the given string."
+    lang_ends_with: String
+    "All values greater than the given value."
+    lang_gt: String
+    "All values greater than or equal the given value."
+    lang_gte: String
+    "All values that are contained in given list."
+    lang_in: [String!]
+    "All values less than the given value."
+    lang_lt: String
+    "All values less than or equal the given value."
+    lang_lte: String
+    "All values that are not equal to given value."
+    lang_not: String
+    "All values not containing the given string."
+    lang_not_contains: String
+    "All values not ending with the given string."
+    lang_not_ends_with: String
+    "All values that are not contained in given list."
+    lang_not_in: [String!]
+    "All values not starting with the given string."
+    lang_not_starts_with: String
+    "All values starting with the given string."
+    lang_starts_with: String
+    org: OrgFilter
+    orgDef: OrgFilter
+    pages_every: PageFilter
+    pages_none: PageFilter
+    pages_some: PageFilter
+    phone: String
+    "All values containing the given string."
+    phone_contains: String
+    "All values ending with the given string."
+    phone_ends_with: String
+    "All values greater than the given value."
+    phone_gt: String
+    "All values greater than or equal the given value."
+    phone_gte: String
+    "All values that are contained in given list."
+    phone_in: [String!]
+    "All values less than the given value."
+    phone_lt: String
+    "All values less than or equal the given value."
+    phone_lte: String
+    "All values that are not equal to given value."
+    phone_not: String
+    "All values not containing the given string."
+    phone_not_contains: String
+    "All values not ending with the given string."
+    phone_not_ends_with: String
+    "All values that are not contained in given list."
+    phone_not_in: [String!]
+    "All values not starting with the given string."
+    phone_not_starts_with: String
+    "All values starting with the given string."
+    phone_starts_with: String
+    town: String
+    "All values containing the given string."
+    town_contains: String
+    "All values ending with the given string."
+    town_ends_with: String
+    "All values greater than the given value."
+    town_gt: String
+    "All values greater than or equal the given value."
+    town_gte: String
+    "All values that are contained in given list."
+    town_in: [String!]
+    "All values less than the given value."
+    town_lt: String
+    "All values less than or equal the given value."
+    town_lte: String
+    "All values that are not equal to given value."
+    town_not: String
+    "All values not containing the given string."
+    town_not_contains: String
+    "All values not ending with the given string."
+    town_not_ends_with: String
+    "All values that are not contained in given list."
+    town_not_in: [String!]
+    "All values not starting with the given string."
+    town_not_starts_with: String
+    "All values starting with the given string."
+    town_starts_with: String
+}
+
+input FooterSubscriptionFilter {
+    "Logical AND on all given filters."
+    AND: [FooterSubscriptionFilter!]
+    "Logical OR on all given filters."
+    OR: [FooterSubscriptionFilter!]
+    "The subscription event gets dispatched when it's listed in mutation_in"
+    mutation_in: [_ModelMutationType!]
+    node: FooterSubscriptionFilterNode
+    "The subscription event gets only dispatched when one of the updated fields names is included in this list"
+    updatedFields_contains: String
+    "The subscription event gets only dispatched when all of the field names included in this list have been updated"
+    updatedFields_contains_every: [String!]
+    "The subscription event gets only dispatched when some of the field names included in this list have been updated"
+    updatedFields_contains_some: [String!]
+}
+
+input FooterSubscriptionFilterNode {
+    address: String
+    "All values containing the given string."
+    address_contains: String
+    "All values ending with the given string."
+    address_ends_with: String
+    "All values greater than the given value."
+    address_gt: String
+    "All values greater than or equal the given value."
+    address_gte: String
+    "All values that are contained in given list."
+    address_in: [String!]
+    "All values less than the given value."
+    address_lt: String
+    "All values less than or equal the given value."
+    address_lte: String
+    "All values that are not equal to given value."
+    address_not: String
+    "All values not containing the given string."
+    address_not_contains: String
+    "All values not ending with the given string."
+    address_not_ends_with: String
+    "All values that are not contained in given list."
+    address_not_in: [String!]
+    "All values not starting with the given string."
+    address_not_starts_with: String
+    "All values starting with the given string."
+    address_starts_with: String
+    color: String
+    "All values containing the given string."
+    color_contains: String
+    "All values ending with the given string."
+    color_ends_with: String
+    "All values greater than the given value."
+    color_gt: String
+    "All values greater than or equal the given value."
+    color_gte: String
+    "All values that are contained in given list."
+    color_in: [String!]
+    "All values less than the given value."
+    color_lt: String
+    "All values less than or equal the given value."
+    color_lte: String
+    "All values that are not equal to given value."
+    color_not: String
+    "All values not containing the given string."
+    color_not_contains: String
+    "All values not ending with the given string."
+    color_not_ends_with: String
+    "All values that are not contained in given list."
+    color_not_in: [String!]
+    "All values not starting with the given string."
+    color_not_starts_with: String
+    "All values starting with the given string."
+    color_starts_with: String
+    email: String
+    "All values containing the given string."
+    email_contains: String
+    "All values ending with the given string."
+    email_ends_with: String
+    "All values greater than the given value."
+    email_gt: String
+    "All values greater than or equal the given value."
+    email_gte: String
+    "All values that are contained in given list."
+    email_in: [String!]
+    "All values less than the given value."
+    email_lt: String
+    "All values less than or equal the given value."
+    email_lte: String
+    "All values that are not equal to given value."
+    email_not: String
+    "All values not containing the given string."
+    email_not_contains: String
+    "All values not ending with the given string."
+    email_not_ends_with: String
+    "All values that are not contained in given list."
+    email_not_in: [String!]
+    "All values not starting with the given string."
+    email_not_starts_with: String
+    "All values starting with the given string."
+    email_starts_with: String
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    lang: String
+    "All values containing the given string."
+    lang_contains: String
+    "All values ending with the given string."
+    lang_ends_with: String
+    "All values greater than the given value."
+    lang_gt: String
+    "All values greater than or equal the given value."
+    lang_gte: String
+    "All values that are contained in given list."
+    lang_in: [String!]
+    "All values less than the given value."
+    lang_lt: String
+    "All values less than or equal the given value."
+    lang_lte: String
+    "All values that are not equal to given value."
+    lang_not: String
+    "All values not containing the given string."
+    lang_not_contains: String
+    "All values not ending with the given string."
+    lang_not_ends_with: String
+    "All values that are not contained in given list."
+    lang_not_in: [String!]
+    "All values not starting with the given string."
+    lang_not_starts_with: String
+    "All values starting with the given string."
+    lang_starts_with: String
+    org: OrgFilter
+    orgDef: OrgFilter
+    pages_every: PageFilter
+    pages_none: PageFilter
+    pages_some: PageFilter
+    phone: String
+    "All values containing the given string."
+    phone_contains: String
+    "All values ending with the given string."
+    phone_ends_with: String
+    "All values greater than the given value."
+    phone_gt: String
+    "All values greater than or equal the given value."
+    phone_gte: String
+    "All values that are contained in given list."
+    phone_in: [String!]
+    "All values less than the given value."
+    phone_lt: String
+    "All values less than or equal the given value."
+    phone_lte: String
+    "All values that are not equal to given value."
+    phone_not: String
+    "All values not containing the given string."
+    phone_not_contains: String
+    "All values not ending with the given string."
+    phone_not_ends_with: String
+    "All values that are not contained in given list."
+    phone_not_in: [String!]
+    "All values not starting with the given string."
+    phone_not_starts_with: String
+    "All values starting with the given string."
+    phone_starts_with: String
+    town: String
+    "All values containing the given string."
+    town_contains: String
+    "All values ending with the given string."
+    town_ends_with: String
+    "All values greater than the given value."
+    town_gt: String
+    "All values greater than or equal the given value."
+    town_gte: String
+    "All values that are contained in given list."
+    town_in: [String!]
+    "All values less than the given value."
+    town_lt: String
+    "All values less than or equal the given value."
+    town_lte: String
+    "All values that are not equal to given value."
+    town_not: String
+    "All values not containing the given string."
+    town_not_contains: String
+    "All values not ending with the given string."
+    town_not_ends_with: String
+    "All values that are not contained in given list."
+    town_not_in: [String!]
+    "All values not starting with the given string."
+    town_not_starts_with: String
+    "All values starting with the given string."
+    town_starts_with: String
+}
+
+input FooterorgDefOrg {
+    defaultHeader: OrgdefaultHeaderHeader
+    defaultHeaderId: ID
+    defaultLang: String
+    files: [OrgfilesFile!]
+    filesIds: [ID!]
+    footers: [OrgfootersFooter!]
+    footersIds: [ID!]
+    headers: [OrgheadersHeader!]
+    headersIds: [ID!]
+    images: [OrgimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    pages: [OrgpagesPage!]
+    pagesIds: [ID!]
+    sections: [OrgsectionsSection!]
+    sectionsIds: [ID!]
+    theme: String
+    title: String!
+    usersIds: [ID!]
+}
+
+input FooterorgOrg {
+    defaultFooter: OrgdefaultFooterFooter
+    defaultFooterId: ID
+    defaultHeader: OrgdefaultHeaderHeader
+    defaultHeaderId: ID
+    defaultLang: String
+    files: [OrgfilesFile!]
+    filesIds: [ID!]
+    footers: [OrgfootersFooter!]
+    footersIds: [ID!]
+    headers: [OrgheadersHeader!]
+    headersIds: [ID!]
+    images: [OrgimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    pages: [OrgpagesPage!]
+    pagesIds: [ID!]
+    sections: [OrgsectionsSection!]
+    sectionsIds: [ID!]
+    theme: String
+    title: String!
+    usersIds: [ID!]
+}
+
+input FooterpagesPage {
+    conclusion: String
+    header: PageheaderHeader
+    headerId: ID
+    image: PageimageImage
+    imageId: ID
+    lang: String!
+    link: String!
+    menuChild: [PagemenuChildPage!]
+    menuChildIds: [ID!]
+    menuParent: PagemenuChildPage
+    menuParentId: ID
+    menuStatus: MenuStatus
+    org: PageorgOrg
+    orgId: ID
+    preamble: String
+    sections: [PagesectionsSection!]
+    sectionsIds: [ID!]
+    title: String!
+}
+
+input HeaderFilter {
+    "Logical AND on all given filters."
+    AND: [HeaderFilter!]
+    "Logical OR on all given filters."
+    OR: [HeaderFilter!]
+    color: String
+    "All values containing the given string."
+    color_contains: String
+    "All values ending with the given string."
+    color_ends_with: String
+    "All values greater than the given value."
+    color_gt: String
+    "All values greater than or equal the given value."
+    color_gte: String
+    "All values that are contained in given list."
+    color_in: [String!]
+    "All values less than the given value."
+    color_lt: String
+    "All values less than or equal the given value."
+    color_lte: String
+    "All values that are not equal to given value."
+    color_not: String
+    "All values not containing the given string."
+    color_not_contains: String
+    "All values not ending with the given string."
+    color_not_ends_with: String
+    "All values that are not contained in given list."
+    color_not_in: [String!]
+    "All values not starting with the given string."
+    color_not_starts_with: String
+    "All values starting with the given string."
+    color_starts_with: String
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    lang: String
+    "All values containing the given string."
+    lang_contains: String
+    "All values ending with the given string."
+    lang_ends_with: String
+    "All values greater than the given value."
+    lang_gt: String
+    "All values greater than or equal the given value."
+    lang_gte: String
+    "All values that are contained in given list."
+    lang_in: [String!]
+    "All values less than the given value."
+    lang_lt: String
+    "All values less than or equal the given value."
+    lang_lte: String
+    "All values that are not equal to given value."
+    lang_not: String
+    "All values not containing the given string."
+    lang_not_contains: String
+    "All values not ending with the given string."
+    lang_not_ends_with: String
+    "All values that are not contained in given list."
+    lang_not_in: [String!]
+    "All values not starting with the given string."
+    lang_not_starts_with: String
+    "All values starting with the given string."
+    lang_starts_with: String
+    logo: FileFilter
+    logoDescription: String
+    "All values containing the given string."
+    logoDescription_contains: String
+    "All values ending with the given string."
+    logoDescription_ends_with: String
+    "All values greater than the given value."
+    logoDescription_gt: String
+    "All values greater than or equal the given value."
+    logoDescription_gte: String
+    "All values that are contained in given list."
+    logoDescription_in: [String!]
+    "All values less than the given value."
+    logoDescription_lt: String
+    "All values less than or equal the given value."
+    logoDescription_lte: String
+    "All values that are not equal to given value."
+    logoDescription_not: String
+    "All values not containing the given string."
+    logoDescription_not_contains: String
+    "All values not ending with the given string."
+    logoDescription_not_ends_with: String
+    "All values that are not contained in given list."
+    logoDescription_not_in: [String!]
+    "All values not starting with the given string."
+    logoDescription_not_starts_with: String
+    "All values starting with the given string."
+    logoDescription_starts_with: String
+    org: OrgFilter
+    orgDef: OrgFilter
+    page: PageFilter
+    tagline: String
+    "All values containing the given string."
+    tagline_contains: String
+    "All values ending with the given string."
+    tagline_ends_with: String
+    "All values greater than the given value."
+    tagline_gt: String
+    "All values greater than or equal the given value."
+    tagline_gte: String
+    "All values that are contained in given list."
+    tagline_in: [String!]
+    "All values less than the given value."
+    tagline_lt: String
+    "All values less than or equal the given value."
+    tagline_lte: String
+    "All values that are not equal to given value."
+    tagline_not: String
+    "All values not containing the given string."
+    tagline_not_contains: String
+    "All values not ending with the given string."
+    tagline_not_ends_with: String
+    "All values that are not contained in given list."
+    tagline_not_in: [String!]
+    "All values not starting with the given string."
+    tagline_not_starts_with: String
+    "All values starting with the given string."
+    tagline_starts_with: String
+}
+
+input HeaderSubscriptionFilter {
+    "Logical AND on all given filters."
+    AND: [HeaderSubscriptionFilter!]
+    "Logical OR on all given filters."
+    OR: [HeaderSubscriptionFilter!]
+    "The subscription event gets dispatched when it's listed in mutation_in"
+    mutation_in: [_ModelMutationType!]
+    node: HeaderSubscriptionFilterNode
+    "The subscription event gets only dispatched when one of the updated fields names is included in this list"
+    updatedFields_contains: String
+    "The subscription event gets only dispatched when all of the field names included in this list have been updated"
+    updatedFields_contains_every: [String!]
+    "The subscription event gets only dispatched when some of the field names included in this list have been updated"
+    updatedFields_contains_some: [String!]
+}
+
+input HeaderSubscriptionFilterNode {
+    color: String
+    "All values containing the given string."
+    color_contains: String
+    "All values ending with the given string."
+    color_ends_with: String
+    "All values greater than the given value."
+    color_gt: String
+    "All values greater than or equal the given value."
+    color_gte: String
+    "All values that are contained in given list."
+    color_in: [String!]
+    "All values less than the given value."
+    color_lt: String
+    "All values less than or equal the given value."
+    color_lte: String
+    "All values that are not equal to given value."
+    color_not: String
+    "All values not containing the given string."
+    color_not_contains: String
+    "All values not ending with the given string."
+    color_not_ends_with: String
+    "All values that are not contained in given list."
+    color_not_in: [String!]
+    "All values not starting with the given string."
+    color_not_starts_with: String
+    "All values starting with the given string."
+    color_starts_with: String
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    lang: String
+    "All values containing the given string."
+    lang_contains: String
+    "All values ending with the given string."
+    lang_ends_with: String
+    "All values greater than the given value."
+    lang_gt: String
+    "All values greater than or equal the given value."
+    lang_gte: String
+    "All values that are contained in given list."
+    lang_in: [String!]
+    "All values less than the given value."
+    lang_lt: String
+    "All values less than or equal the given value."
+    lang_lte: String
+    "All values that are not equal to given value."
+    lang_not: String
+    "All values not containing the given string."
+    lang_not_contains: String
+    "All values not ending with the given string."
+    lang_not_ends_with: String
+    "All values that are not contained in given list."
+    lang_not_in: [String!]
+    "All values not starting with the given string."
+    lang_not_starts_with: String
+    "All values starting with the given string."
+    lang_starts_with: String
+    logo: FileFilter
+    logoDescription: String
+    "All values containing the given string."
+    logoDescription_contains: String
+    "All values ending with the given string."
+    logoDescription_ends_with: String
+    "All values greater than the given value."
+    logoDescription_gt: String
+    "All values greater than or equal the given value."
+    logoDescription_gte: String
+    "All values that are contained in given list."
+    logoDescription_in: [String!]
+    "All values less than the given value."
+    logoDescription_lt: String
+    "All values less than or equal the given value."
+    logoDescription_lte: String
+    "All values that are not equal to given value."
+    logoDescription_not: String
+    "All values not containing the given string."
+    logoDescription_not_contains: String
+    "All values not ending with the given string."
+    logoDescription_not_ends_with: String
+    "All values that are not contained in given list."
+    logoDescription_not_in: [String!]
+    "All values not starting with the given string."
+    logoDescription_not_starts_with: String
+    "All values starting with the given string."
+    logoDescription_starts_with: String
+    org: OrgFilter
+    orgDef: OrgFilter
+    page: PageFilter
+    tagline: String
+    "All values containing the given string."
+    tagline_contains: String
+    "All values ending with the given string."
+    tagline_ends_with: String
+    "All values greater than the given value."
+    tagline_gt: String
+    "All values greater than or equal the given value."
+    tagline_gte: String
+    "All values that are contained in given list."
+    tagline_in: [String!]
+    "All values less than the given value."
+    tagline_lt: String
+    "All values less than or equal the given value."
+    tagline_lte: String
+    "All values that are not equal to given value."
+    tagline_not: String
+    "All values not containing the given string."
+    tagline_not_contains: String
+    "All values not ending with the given string."
+    tagline_not_ends_with: String
+    "All values that are not contained in given list."
+    tagline_not_in: [String!]
+    "All values not starting with the given string."
+    tagline_not_starts_with: String
+    "All values starting with the given string."
+    tagline_starts_with: String
+}
+
+input HeaderlogoFile {
+    headers: [FileheadersHeader!]
+    headersIds: [ID!]
+    images: [FileimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    org: FileorgOrg
+    orgId: ID
+}
+
+input HeaderorgDefOrg {
+    defaultFooter: OrgdefaultFooterFooter
+    defaultFooterId: ID
+    defaultLang: String
+    files: [OrgfilesFile!]
+    filesIds: [ID!]
+    footers: [OrgfootersFooter!]
+    footersIds: [ID!]
+    headers: [OrgheadersHeader!]
+    headersIds: [ID!]
+    images: [OrgimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    pages: [OrgpagesPage!]
+    pagesIds: [ID!]
+    sections: [OrgsectionsSection!]
+    sectionsIds: [ID!]
+    theme: String
+    title: String!
+    usersIds: [ID!]
+}
+
+input HeaderorgOrg {
+    defaultFooter: OrgdefaultFooterFooter
+    defaultFooterId: ID
+    defaultHeader: OrgdefaultHeaderHeader
+    defaultHeaderId: ID
+    defaultLang: String
+    files: [OrgfilesFile!]
+    filesIds: [ID!]
+    footers: [OrgfootersFooter!]
+    footersIds: [ID!]
+    headers: [OrgheadersHeader!]
+    headersIds: [ID!]
+    images: [OrgimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    pages: [OrgpagesPage!]
+    pagesIds: [ID!]
+    sections: [OrgsectionsSection!]
+    sectionsIds: [ID!]
+    theme: String
+    title: String!
+    usersIds: [ID!]
+}
+
+input HeaderpagePage {
+    conclusion: String
+    footer: PagefooterFooter
+    footerId: ID
+    image: PageimageImage
+    imageId: ID
+    lang: String!
+    link: String!
+    menuChild: [PagemenuChildPage!]
+    menuChildIds: [ID!]
+    menuParent: PagemenuChildPage
+    menuParentId: ID
+    menuStatus: MenuStatus
+    org: PageorgOrg
+    orgId: ID
+    preamble: String
+    sections: [PagesectionsSection!]
+    sectionsIds: [ID!]
+    title: String!
+}
+
+input ImageFilter {
+    "Logical AND on all given filters."
+    AND: [ImageFilter!]
+    "Logical OR on all given filters."
+    OR: [ImageFilter!]
+    caption: String
+    "All values containing the given string."
+    caption_contains: String
+    "All values ending with the given string."
+    caption_ends_with: String
+    "All values greater than the given value."
+    caption_gt: String
+    "All values greater than or equal the given value."
+    caption_gte: String
+    "All values that are contained in given list."
+    caption_in: [String!]
+    "All values less than the given value."
+    caption_lt: String
+    "All values less than or equal the given value."
+    caption_lte: String
+    "All values that are not equal to given value."
+    caption_not: String
+    "All values not containing the given string."
+    caption_not_contains: String
+    "All values not ending with the given string."
+    caption_not_ends_with: String
+    "All values that are not contained in given list."
+    caption_not_in: [String!]
+    "All values not starting with the given string."
+    caption_not_starts_with: String
+    "All values starting with the given string."
+    caption_starts_with: String
+    description: String
+    "All values containing the given string."
+    description_contains: String
+    "All values ending with the given string."
+    description_ends_with: String
+    "All values greater than the given value."
+    description_gt: String
+    "All values greater than or equal the given value."
+    description_gte: String
+    "All values that are contained in given list."
+    description_in: [String!]
+    "All values less than the given value."
+    description_lt: String
+    "All values less than or equal the given value."
+    description_lte: String
+    "All values that are not equal to given value."
+    description_not: String
+    "All values not containing the given string."
+    description_not_contains: String
+    "All values not ending with the given string."
+    description_not_ends_with: String
+    "All values that are not contained in given list."
+    description_not_in: [String!]
+    "All values not starting with the given string."
+    description_not_starts_with: String
+    "All values starting with the given string."
+    description_starts_with: String
+    file: FileFilter
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    lang: String
+    "All values containing the given string."
+    lang_contains: String
+    "All values ending with the given string."
+    lang_ends_with: String
+    "All values greater than the given value."
+    lang_gt: String
+    "All values greater than or equal the given value."
+    lang_gte: String
+    "All values that are contained in given list."
+    lang_in: [String!]
+    "All values less than the given value."
+    lang_lt: String
+    "All values less than or equal the given value."
+    lang_lte: String
+    "All values that are not equal to given value."
+    lang_not: String
+    "All values not containing the given string."
+    lang_not_contains: String
+    "All values not ending with the given string."
+    lang_not_ends_with: String
+    "All values that are not contained in given list."
+    lang_not_in: [String!]
+    "All values not starting with the given string."
+    lang_not_starts_with: String
+    "All values starting with the given string."
+    lang_starts_with: String
+    org: OrgFilter
+    page: PageFilter
+    sections_every: SectionFilter
+    sections_none: SectionFilter
+    sections_some: SectionFilter
+}
+
+input ImageSubscriptionFilter {
+    "Logical AND on all given filters."
+    AND: [ImageSubscriptionFilter!]
+    "Logical OR on all given filters."
+    OR: [ImageSubscriptionFilter!]
+    "The subscription event gets dispatched when it's listed in mutation_in"
+    mutation_in: [_ModelMutationType!]
+    node: ImageSubscriptionFilterNode
+    "The subscription event gets only dispatched when one of the updated fields names is included in this list"
+    updatedFields_contains: String
+    "The subscription event gets only dispatched when all of the field names included in this list have been updated"
+    updatedFields_contains_every: [String!]
+    "The subscription event gets only dispatched when some of the field names included in this list have been updated"
+    updatedFields_contains_some: [String!]
+}
+
+input ImageSubscriptionFilterNode {
+    caption: String
+    "All values containing the given string."
+    caption_contains: String
+    "All values ending with the given string."
+    caption_ends_with: String
+    "All values greater than the given value."
+    caption_gt: String
+    "All values greater than or equal the given value."
+    caption_gte: String
+    "All values that are contained in given list."
+    caption_in: [String!]
+    "All values less than the given value."
+    caption_lt: String
+    "All values less than or equal the given value."
+    caption_lte: String
+    "All values that are not equal to given value."
+    caption_not: String
+    "All values not containing the given string."
+    caption_not_contains: String
+    "All values not ending with the given string."
+    caption_not_ends_with: String
+    "All values that are not contained in given list."
+    caption_not_in: [String!]
+    "All values not starting with the given string."
+    caption_not_starts_with: String
+    "All values starting with the given string."
+    caption_starts_with: String
+    description: String
+    "All values containing the given string."
+    description_contains: String
+    "All values ending with the given string."
+    description_ends_with: String
+    "All values greater than the given value."
+    description_gt: String
+    "All values greater than or equal the given value."
+    description_gte: String
+    "All values that are contained in given list."
+    description_in: [String!]
+    "All values less than the given value."
+    description_lt: String
+    "All values less than or equal the given value."
+    description_lte: String
+    "All values that are not equal to given value."
+    description_not: String
+    "All values not containing the given string."
+    description_not_contains: String
+    "All values not ending with the given string."
+    description_not_ends_with: String
+    "All values that are not contained in given list."
+    description_not_in: [String!]
+    "All values not starting with the given string."
+    description_not_starts_with: String
+    "All values starting with the given string."
+    description_starts_with: String
+    file: FileFilter
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    lang: String
+    "All values containing the given string."
+    lang_contains: String
+    "All values ending with the given string."
+    lang_ends_with: String
+    "All values greater than the given value."
+    lang_gt: String
+    "All values greater than or equal the given value."
+    lang_gte: String
+    "All values that are contained in given list."
+    lang_in: [String!]
+    "All values less than the given value."
+    lang_lt: String
+    "All values less than or equal the given value."
+    lang_lte: String
+    "All values that are not equal to given value."
+    lang_not: String
+    "All values not containing the given string."
+    lang_not_contains: String
+    "All values not ending with the given string."
+    lang_not_ends_with: String
+    "All values that are not contained in given list."
+    lang_not_in: [String!]
+    "All values not starting with the given string."
+    lang_not_starts_with: String
+    "All values starting with the given string."
+    lang_starts_with: String
+    org: OrgFilter
+    page: PageFilter
+    sections_every: SectionFilter
+    sections_none: SectionFilter
+    sections_some: SectionFilter
+}
+
+input ImagefileFile {
+    headers: [FileheadersHeader!]
+    headersIds: [ID!]
+    images: [FileimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    org: FileorgOrg
+    orgId: ID
+}
+
+input ImageorgOrg {
+    defaultFooter: OrgdefaultFooterFooter
+    defaultFooterId: ID
+    defaultHeader: OrgdefaultHeaderHeader
+    defaultHeaderId: ID
+    defaultLang: String
+    files: [OrgfilesFile!]
+    filesIds: [ID!]
+    footers: [OrgfootersFooter!]
+    footersIds: [ID!]
+    headers: [OrgheadersHeader!]
+    headersIds: [ID!]
+    images: [OrgimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    pages: [OrgpagesPage!]
+    pagesIds: [ID!]
+    sections: [OrgsectionsSection!]
+    sectionsIds: [ID!]
+    theme: String
+    title: String!
+    usersIds: [ID!]
+}
+
+input ImagepagePage {
+    conclusion: String
+    footer: PagefooterFooter
+    footerId: ID
+    header: PageheaderHeader
+    headerId: ID
+    lang: String!
+    link: String!
+    menuChild: [PagemenuChildPage!]
+    menuChildIds: [ID!]
+    menuParent: PagemenuChildPage
+    menuParentId: ID
+    menuStatus: MenuStatus
+    org: PageorgOrg
+    orgId: ID
+    preamble: String
+    sections: [PagesectionsSection!]
+    sectionsIds: [ID!]
+    title: String!
+}
+
+input ImagesectionsSection {
+    lang: String!
+    org: SectionorgOrg
+    orgId: ID
+    pages: [SectionpagesPage!]
+    pagesIds: [ID!]
+    text: String!
+    title: String!
+}
+
+input InvokeFunctionInput {
+    clientMutationId: String
+    input: String!
+    name: String!
+}
+
+input OrgFilter {
+    "Logical AND on all given filters."
+    AND: [OrgFilter!]
+    "Logical OR on all given filters."
+    OR: [OrgFilter!]
+    defaultFooter: FooterFilter
+    defaultHeader: HeaderFilter
+    defaultLang: String
+    "All values containing the given string."
+    defaultLang_contains: String
+    "All values ending with the given string."
+    defaultLang_ends_with: String
+    "All values greater than the given value."
+    defaultLang_gt: String
+    "All values greater than or equal the given value."
+    defaultLang_gte: String
+    "All values that are contained in given list."
+    defaultLang_in: [String!]
+    "All values less than the given value."
+    defaultLang_lt: String
+    "All values less than or equal the given value."
+    defaultLang_lte: String
+    "All values that are not equal to given value."
+    defaultLang_not: String
+    "All values not containing the given string."
+    defaultLang_not_contains: String
+    "All values not ending with the given string."
+    defaultLang_not_ends_with: String
+    "All values that are not contained in given list."
+    defaultLang_not_in: [String!]
+    "All values not starting with the given string."
+    defaultLang_not_starts_with: String
+    "All values starting with the given string."
+    defaultLang_starts_with: String
+    files_every: FileFilter
+    files_none: FileFilter
+    files_some: FileFilter
+    footers_every: FooterFilter
+    footers_none: FooterFilter
+    footers_some: FooterFilter
+    headers_every: HeaderFilter
+    headers_none: HeaderFilter
+    headers_some: HeaderFilter
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    images_every: ImageFilter
+    images_none: ImageFilter
+    images_some: ImageFilter
+    name: String
+    "All values containing the given string."
+    name_contains: String
+    "All values ending with the given string."
+    name_ends_with: String
+    "All values greater than the given value."
+    name_gt: String
+    "All values greater than or equal the given value."
+    name_gte: String
+    "All values that are contained in given list."
+    name_in: [String!]
+    "All values less than the given value."
+    name_lt: String
+    "All values less than or equal the given value."
+    name_lte: String
+    "All values that are not equal to given value."
+    name_not: String
+    "All values not containing the given string."
+    name_not_contains: String
+    "All values not ending with the given string."
+    name_not_ends_with: String
+    "All values that are not contained in given list."
+    name_not_in: [String!]
+    "All values not starting with the given string."
+    name_not_starts_with: String
+    "All values starting with the given string."
+    name_starts_with: String
+    pages_every: PageFilter
+    pages_none: PageFilter
+    pages_some: PageFilter
+    sections_every: SectionFilter
+    sections_none: SectionFilter
+    sections_some: SectionFilter
+    theme: String
+    "All values containing the given string."
+    theme_contains: String
+    "All values ending with the given string."
+    theme_ends_with: String
+    "All values greater than the given value."
+    theme_gt: String
+    "All values greater than or equal the given value."
+    theme_gte: String
+    "All values that are contained in given list."
+    theme_in: [String!]
+    "All values less than the given value."
+    theme_lt: String
+    "All values less than or equal the given value."
+    theme_lte: String
+    "All values that are not equal to given value."
+    theme_not: String
+    "All values not containing the given string."
+    theme_not_contains: String
+    "All values not ending with the given string."
+    theme_not_ends_with: String
+    "All values that are not contained in given list."
+    theme_not_in: [String!]
+    "All values not starting with the given string."
+    theme_not_starts_with: String
+    "All values starting with the given string."
+    theme_starts_with: String
+    title: String
+    "All values containing the given string."
+    title_contains: String
+    "All values ending with the given string."
+    title_ends_with: String
+    "All values greater than the given value."
+    title_gt: String
+    "All values greater than or equal the given value."
+    title_gte: String
+    "All values that are contained in given list."
+    title_in: [String!]
+    "All values less than the given value."
+    title_lt: String
+    "All values less than or equal the given value."
+    title_lte: String
+    "All values that are not equal to given value."
+    title_not: String
+    "All values not containing the given string."
+    title_not_contains: String
+    "All values not ending with the given string."
+    title_not_ends_with: String
+    "All values that are not contained in given list."
+    title_not_in: [String!]
+    "All values not starting with the given string."
+    title_not_starts_with: String
+    "All values starting with the given string."
+    title_starts_with: String
+    users_every: UserFilter
+    users_none: UserFilter
+    users_some: UserFilter
+}
+
+input OrgSubscriptionFilter {
+    "Logical AND on all given filters."
+    AND: [OrgSubscriptionFilter!]
+    "Logical OR on all given filters."
+    OR: [OrgSubscriptionFilter!]
+    "The subscription event gets dispatched when it's listed in mutation_in"
+    mutation_in: [_ModelMutationType!]
+    node: OrgSubscriptionFilterNode
+    "The subscription event gets only dispatched when one of the updated fields names is included in this list"
+    updatedFields_contains: String
+    "The subscription event gets only dispatched when all of the field names included in this list have been updated"
+    updatedFields_contains_every: [String!]
+    "The subscription event gets only dispatched when some of the field names included in this list have been updated"
+    updatedFields_contains_some: [String!]
+}
+
+input OrgSubscriptionFilterNode {
+    defaultFooter: FooterFilter
+    defaultHeader: HeaderFilter
+    defaultLang: String
+    "All values containing the given string."
+    defaultLang_contains: String
+    "All values ending with the given string."
+    defaultLang_ends_with: String
+    "All values greater than the given value."
+    defaultLang_gt: String
+    "All values greater than or equal the given value."
+    defaultLang_gte: String
+    "All values that are contained in given list."
+    defaultLang_in: [String!]
+    "All values less than the given value."
+    defaultLang_lt: String
+    "All values less than or equal the given value."
+    defaultLang_lte: String
+    "All values that are not equal to given value."
+    defaultLang_not: String
+    "All values not containing the given string."
+    defaultLang_not_contains: String
+    "All values not ending with the given string."
+    defaultLang_not_ends_with: String
+    "All values that are not contained in given list."
+    defaultLang_not_in: [String!]
+    "All values not starting with the given string."
+    defaultLang_not_starts_with: String
+    "All values starting with the given string."
+    defaultLang_starts_with: String
+    files_every: FileFilter
+    files_none: FileFilter
+    files_some: FileFilter
+    footers_every: FooterFilter
+    footers_none: FooterFilter
+    footers_some: FooterFilter
+    headers_every: HeaderFilter
+    headers_none: HeaderFilter
+    headers_some: HeaderFilter
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    images_every: ImageFilter
+    images_none: ImageFilter
+    images_some: ImageFilter
+    name: String
+    "All values containing the given string."
+    name_contains: String
+    "All values ending with the given string."
+    name_ends_with: String
+    "All values greater than the given value."
+    name_gt: String
+    "All values greater than or equal the given value."
+    name_gte: String
+    "All values that are contained in given list."
+    name_in: [String!]
+    "All values less than the given value."
+    name_lt: String
+    "All values less than or equal the given value."
+    name_lte: String
+    "All values that are not equal to given value."
+    name_not: String
+    "All values not containing the given string."
+    name_not_contains: String
+    "All values not ending with the given string."
+    name_not_ends_with: String
+    "All values that are not contained in given list."
+    name_not_in: [String!]
+    "All values not starting with the given string."
+    name_not_starts_with: String
+    "All values starting with the given string."
+    name_starts_with: String
+    pages_every: PageFilter
+    pages_none: PageFilter
+    pages_some: PageFilter
+    sections_every: SectionFilter
+    sections_none: SectionFilter
+    sections_some: SectionFilter
+    theme: String
+    "All values containing the given string."
+    theme_contains: String
+    "All values ending with the given string."
+    theme_ends_with: String
+    "All values greater than the given value."
+    theme_gt: String
+    "All values greater than or equal the given value."
+    theme_gte: String
+    "All values that are contained in given list."
+    theme_in: [String!]
+    "All values less than the given value."
+    theme_lt: String
+    "All values less than or equal the given value."
+    theme_lte: String
+    "All values that are not equal to given value."
+    theme_not: String
+    "All values not containing the given string."
+    theme_not_contains: String
+    "All values not ending with the given string."
+    theme_not_ends_with: String
+    "All values that are not contained in given list."
+    theme_not_in: [String!]
+    "All values not starting with the given string."
+    theme_not_starts_with: String
+    "All values starting with the given string."
+    theme_starts_with: String
+    title: String
+    "All values containing the given string."
+    title_contains: String
+    "All values ending with the given string."
+    title_ends_with: String
+    "All values greater than the given value."
+    title_gt: String
+    "All values greater than or equal the given value."
+    title_gte: String
+    "All values that are contained in given list."
+    title_in: [String!]
+    "All values less than the given value."
+    title_lt: String
+    "All values less than or equal the given value."
+    title_lte: String
+    "All values that are not equal to given value."
+    title_not: String
+    "All values not containing the given string."
+    title_not_contains: String
+    "All values not ending with the given string."
+    title_not_ends_with: String
+    "All values that are not contained in given list."
+    title_not_in: [String!]
+    "All values not starting with the given string."
+    title_not_starts_with: String
+    "All values starting with the given string."
+    title_starts_with: String
+    users_every: UserFilter
+    users_none: UserFilter
+    users_some: UserFilter
+}
+
+input OrgdefaultFooterFooter {
+    address: String!
+    color: String!
+    email: String!
+    lang: String!
+    org: FooterorgOrg
+    orgId: ID
+    pages: [FooterpagesPage!]
+    pagesIds: [ID!]
+    phone: String!
+    town: String!
+}
+
+input OrgdefaultHeaderHeader {
+    color: String!
+    lang: String!
+    logo: HeaderlogoFile
+    logoDescription: String!
+    logoId: ID
+    org: HeaderorgOrg
+    orgId: ID
+    page: HeaderpagePage
+    pageId: ID
+    tagline: String!
+}
+
+input OrgfilesFile {
+    headers: [FileheadersHeader!]
+    headersIds: [ID!]
+    images: [FileimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+}
+
+input OrgfootersFooter {
+    address: String!
+    color: String!
+    email: String!
+    lang: String!
+    orgDef: FooterorgDefOrg
+    orgDefId: ID
+    pages: [FooterpagesPage!]
+    pagesIds: [ID!]
+    phone: String!
+    town: String!
+}
+
+input OrgheadersHeader {
+    color: String!
+    lang: String!
+    logo: HeaderlogoFile
+    logoDescription: String!
+    logoId: ID
+    orgDef: HeaderorgDefOrg
+    orgDefId: ID
+    page: HeaderpagePage
+    pageId: ID
+    tagline: String!
+}
+
+input OrgimagesImage {
+    caption: String!
+    description: String!
+    file: ImagefileFile
+    fileId: ID
+    lang: String!
+    page: ImagepagePage
+    pageId: ID
+    sections: [ImagesectionsSection!]
+    sectionsIds: [ID!]
+}
+
+input OrgpagesPage {
+    conclusion: String
+    footer: PagefooterFooter
+    footerId: ID
+    header: PageheaderHeader
+    headerId: ID
+    image: PageimageImage
+    imageId: ID
+    lang: String!
+    link: String!
+    menuChild: [PagemenuChildPage!]
+    menuChildIds: [ID!]
+    menuParent: PagemenuChildPage
+    menuParentId: ID
+    menuStatus: MenuStatus
+    preamble: String
+    sections: [PagesectionsSection!]
+    sectionsIds: [ID!]
+    title: String!
+}
+
+input OrgsectionsSection {
+    image: SectionimageImage
+    imageId: ID
+    lang: String!
+    pages: [SectionpagesPage!]
+    pagesIds: [ID!]
+    text: String!
+    title: String!
+}
+
+input PageFilter {
+    "Logical AND on all given filters."
+    AND: [PageFilter!]
+    "Logical OR on all given filters."
+    OR: [PageFilter!]
+    conclusion: String
+    "All values containing the given string."
+    conclusion_contains: String
+    "All values ending with the given string."
+    conclusion_ends_with: String
+    "All values greater than the given value."
+    conclusion_gt: String
+    "All values greater than or equal the given value."
+    conclusion_gte: String
+    "All values that are contained in given list."
+    conclusion_in: [String!]
+    "All values less than the given value."
+    conclusion_lt: String
+    "All values less than or equal the given value."
+    conclusion_lte: String
+    "All values that are not equal to given value."
+    conclusion_not: String
+    "All values not containing the given string."
+    conclusion_not_contains: String
+    "All values not ending with the given string."
+    conclusion_not_ends_with: String
+    "All values that are not contained in given list."
+    conclusion_not_in: [String!]
+    "All values not starting with the given string."
+    conclusion_not_starts_with: String
+    "All values starting with the given string."
+    conclusion_starts_with: String
+    footer: FooterFilter
+    header: HeaderFilter
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    image: ImageFilter
+    lang: String
+    "All values containing the given string."
+    lang_contains: String
+    "All values ending with the given string."
+    lang_ends_with: String
+    "All values greater than the given value."
+    lang_gt: String
+    "All values greater than or equal the given value."
+    lang_gte: String
+    "All values that are contained in given list."
+    lang_in: [String!]
+    "All values less than the given value."
+    lang_lt: String
+    "All values less than or equal the given value."
+    lang_lte: String
+    "All values that are not equal to given value."
+    lang_not: String
+    "All values not containing the given string."
+    lang_not_contains: String
+    "All values not ending with the given string."
+    lang_not_ends_with: String
+    "All values that are not contained in given list."
+    lang_not_in: [String!]
+    "All values not starting with the given string."
+    lang_not_starts_with: String
+    "All values starting with the given string."
+    lang_starts_with: String
+    link: String
+    "All values containing the given string."
+    link_contains: String
+    "All values ending with the given string."
+    link_ends_with: String
+    "All values greater than the given value."
+    link_gt: String
+    "All values greater than or equal the given value."
+    link_gte: String
+    "All values that are contained in given list."
+    link_in: [String!]
+    "All values less than the given value."
+    link_lt: String
+    "All values less than or equal the given value."
+    link_lte: String
+    "All values that are not equal to given value."
+    link_not: String
+    "All values not containing the given string."
+    link_not_contains: String
+    "All values not ending with the given string."
+    link_not_ends_with: String
+    "All values that are not contained in given list."
+    link_not_in: [String!]
+    "All values not starting with the given string."
+    link_not_starts_with: String
+    "All values starting with the given string."
+    link_starts_with: String
+    menuChild_every: PageFilter
+    menuChild_none: PageFilter
+    menuChild_some: PageFilter
+    menuParent: PageFilter
+    menuStatus: MenuStatus
+    "All values that are contained in given list."
+    menuStatus_in: [MenuStatus!]
+    "All values that are not equal to given value."
+    menuStatus_not: MenuStatus
+    "All values that are not contained in given list."
+    menuStatus_not_in: [MenuStatus!]
+    org: OrgFilter
+    preamble: String
+    "All values containing the given string."
+    preamble_contains: String
+    "All values ending with the given string."
+    preamble_ends_with: String
+    "All values greater than the given value."
+    preamble_gt: String
+    "All values greater than or equal the given value."
+    preamble_gte: String
+    "All values that are contained in given list."
+    preamble_in: [String!]
+    "All values less than the given value."
+    preamble_lt: String
+    "All values less than or equal the given value."
+    preamble_lte: String
+    "All values that are not equal to given value."
+    preamble_not: String
+    "All values not containing the given string."
+    preamble_not_contains: String
+    "All values not ending with the given string."
+    preamble_not_ends_with: String
+    "All values that are not contained in given list."
+    preamble_not_in: [String!]
+    "All values not starting with the given string."
+    preamble_not_starts_with: String
+    "All values starting with the given string."
+    preamble_starts_with: String
+    sections_every: SectionFilter
+    sections_none: SectionFilter
+    sections_some: SectionFilter
+    title: String
+    "All values containing the given string."
+    title_contains: String
+    "All values ending with the given string."
+    title_ends_with: String
+    "All values greater than the given value."
+    title_gt: String
+    "All values greater than or equal the given value."
+    title_gte: String
+    "All values that are contained in given list."
+    title_in: [String!]
+    "All values less than the given value."
+    title_lt: String
+    "All values less than or equal the given value."
+    title_lte: String
+    "All values that are not equal to given value."
+    title_not: String
+    "All values not containing the given string."
+    title_not_contains: String
+    "All values not ending with the given string."
+    title_not_ends_with: String
+    "All values that are not contained in given list."
+    title_not_in: [String!]
+    "All values not starting with the given string."
+    title_not_starts_with: String
+    "All values starting with the given string."
+    title_starts_with: String
+}
+
+input PageSubscriptionFilter {
+    "Logical AND on all given filters."
+    AND: [PageSubscriptionFilter!]
+    "Logical OR on all given filters."
+    OR: [PageSubscriptionFilter!]
+    "The subscription event gets dispatched when it's listed in mutation_in"
+    mutation_in: [_ModelMutationType!]
+    node: PageSubscriptionFilterNode
+    "The subscription event gets only dispatched when one of the updated fields names is included in this list"
+    updatedFields_contains: String
+    "The subscription event gets only dispatched when all of the field names included in this list have been updated"
+    updatedFields_contains_every: [String!]
+    "The subscription event gets only dispatched when some of the field names included in this list have been updated"
+    updatedFields_contains_some: [String!]
+}
+
+input PageSubscriptionFilterNode {
+    conclusion: String
+    "All values containing the given string."
+    conclusion_contains: String
+    "All values ending with the given string."
+    conclusion_ends_with: String
+    "All values greater than the given value."
+    conclusion_gt: String
+    "All values greater than or equal the given value."
+    conclusion_gte: String
+    "All values that are contained in given list."
+    conclusion_in: [String!]
+    "All values less than the given value."
+    conclusion_lt: String
+    "All values less than or equal the given value."
+    conclusion_lte: String
+    "All values that are not equal to given value."
+    conclusion_not: String
+    "All values not containing the given string."
+    conclusion_not_contains: String
+    "All values not ending with the given string."
+    conclusion_not_ends_with: String
+    "All values that are not contained in given list."
+    conclusion_not_in: [String!]
+    "All values not starting with the given string."
+    conclusion_not_starts_with: String
+    "All values starting with the given string."
+    conclusion_starts_with: String
+    footer: FooterFilter
+    header: HeaderFilter
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    image: ImageFilter
+    lang: String
+    "All values containing the given string."
+    lang_contains: String
+    "All values ending with the given string."
+    lang_ends_with: String
+    "All values greater than the given value."
+    lang_gt: String
+    "All values greater than or equal the given value."
+    lang_gte: String
+    "All values that are contained in given list."
+    lang_in: [String!]
+    "All values less than the given value."
+    lang_lt: String
+    "All values less than or equal the given value."
+    lang_lte: String
+    "All values that are not equal to given value."
+    lang_not: String
+    "All values not containing the given string."
+    lang_not_contains: String
+    "All values not ending with the given string."
+    lang_not_ends_with: String
+    "All values that are not contained in given list."
+    lang_not_in: [String!]
+    "All values not starting with the given string."
+    lang_not_starts_with: String
+    "All values starting with the given string."
+    lang_starts_with: String
+    link: String
+    "All values containing the given string."
+    link_contains: String
+    "All values ending with the given string."
+    link_ends_with: String
+    "All values greater than the given value."
+    link_gt: String
+    "All values greater than or equal the given value."
+    link_gte: String
+    "All values that are contained in given list."
+    link_in: [String!]
+    "All values less than the given value."
+    link_lt: String
+    "All values less than or equal the given value."
+    link_lte: String
+    "All values that are not equal to given value."
+    link_not: String
+    "All values not containing the given string."
+    link_not_contains: String
+    "All values not ending with the given string."
+    link_not_ends_with: String
+    "All values that are not contained in given list."
+    link_not_in: [String!]
+    "All values not starting with the given string."
+    link_not_starts_with: String
+    "All values starting with the given string."
+    link_starts_with: String
+    menuChild_every: PageFilter
+    menuChild_none: PageFilter
+    menuChild_some: PageFilter
+    menuParent: PageFilter
+    menuStatus: MenuStatus
+    "All values that are contained in given list."
+    menuStatus_in: [MenuStatus!]
+    "All values that are not equal to given value."
+    menuStatus_not: MenuStatus
+    "All values that are not contained in given list."
+    menuStatus_not_in: [MenuStatus!]
+    org: OrgFilter
+    preamble: String
+    "All values containing the given string."
+    preamble_contains: String
+    "All values ending with the given string."
+    preamble_ends_with: String
+    "All values greater than the given value."
+    preamble_gt: String
+    "All values greater than or equal the given value."
+    preamble_gte: String
+    "All values that are contained in given list."
+    preamble_in: [String!]
+    "All values less than the given value."
+    preamble_lt: String
+    "All values less than or equal the given value."
+    preamble_lte: String
+    "All values that are not equal to given value."
+    preamble_not: String
+    "All values not containing the given string."
+    preamble_not_contains: String
+    "All values not ending with the given string."
+    preamble_not_ends_with: String
+    "All values that are not contained in given list."
+    preamble_not_in: [String!]
+    "All values not starting with the given string."
+    preamble_not_starts_with: String
+    "All values starting with the given string."
+    preamble_starts_with: String
+    sections_every: SectionFilter
+    sections_none: SectionFilter
+    sections_some: SectionFilter
+    title: String
+    "All values containing the given string."
+    title_contains: String
+    "All values ending with the given string."
+    title_ends_with: String
+    "All values greater than the given value."
+    title_gt: String
+    "All values greater than or equal the given value."
+    title_gte: String
+    "All values that are contained in given list."
+    title_in: [String!]
+    "All values less than the given value."
+    title_lt: String
+    "All values less than or equal the given value."
+    title_lte: String
+    "All values that are not equal to given value."
+    title_not: String
+    "All values not containing the given string."
+    title_not_contains: String
+    "All values not ending with the given string."
+    title_not_ends_with: String
+    "All values that are not contained in given list."
+    title_not_in: [String!]
+    "All values not starting with the given string."
+    title_not_starts_with: String
+    "All values starting with the given string."
+    title_starts_with: String
+}
+
+input PagefooterFooter {
+    address: String!
+    color: String!
+    email: String!
+    lang: String!
+    org: FooterorgOrg
+    orgDef: FooterorgDefOrg
+    orgDefId: ID
+    orgId: ID
+    pages: [FooterpagesPage!]
+    pagesIds: [ID!]
+    phone: String!
+    town: String!
+}
+
+input PageheaderHeader {
+    color: String!
+    lang: String!
+    logo: HeaderlogoFile
+    logoDescription: String!
+    logoId: ID
+    org: HeaderorgOrg
+    orgDef: HeaderorgDefOrg
+    orgDefId: ID
+    orgId: ID
+    tagline: String!
+}
+
+input PageimageImage {
+    caption: String!
+    description: String!
+    file: ImagefileFile
+    fileId: ID
+    lang: String!
+    org: ImageorgOrg
+    orgId: ID
+    sections: [ImagesectionsSection!]
+    sectionsIds: [ID!]
+}
+
+input PagemenuChildPage {
+    conclusion: String
+    footer: PagefooterFooter
+    footerId: ID
+    header: PageheaderHeader
+    headerId: ID
+    image: PageimageImage
+    imageId: ID
+    lang: String!
+    link: String!
+    menuChild: [PagemenuChildPage!]
+    menuChildIds: [ID!]
+    menuStatus: MenuStatus
+    org: PageorgOrg
+    orgId: ID
+    preamble: String
+    sections: [PagesectionsSection!]
+    sectionsIds: [ID!]
+    title: String!
+}
+
+input PageorgOrg {
+    defaultFooter: OrgdefaultFooterFooter
+    defaultFooterId: ID
+    defaultHeader: OrgdefaultHeaderHeader
+    defaultHeaderId: ID
+    defaultLang: String
+    files: [OrgfilesFile!]
+    filesIds: [ID!]
+    footers: [OrgfootersFooter!]
+    footersIds: [ID!]
+    headers: [OrgheadersHeader!]
+    headersIds: [ID!]
+    images: [OrgimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    pages: [OrgpagesPage!]
+    pagesIds: [ID!]
+    sections: [OrgsectionsSection!]
+    sectionsIds: [ID!]
+    theme: String
+    title: String!
+    usersIds: [ID!]
+}
+
+input PagesectionsSection {
+    image: SectionimageImage
+    imageId: ID
+    lang: String!
+    org: SectionorgOrg
+    orgId: ID
+    pages: [SectionpagesPage!]
+    pagesIds: [ID!]
+    text: String!
+    title: String!
+}
+
+input SectionFilter {
+    "Logical AND on all given filters."
+    AND: [SectionFilter!]
+    "Logical OR on all given filters."
+    OR: [SectionFilter!]
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    image: ImageFilter
+    lang: String
+    "All values containing the given string."
+    lang_contains: String
+    "All values ending with the given string."
+    lang_ends_with: String
+    "All values greater than the given value."
+    lang_gt: String
+    "All values greater than or equal the given value."
+    lang_gte: String
+    "All values that are contained in given list."
+    lang_in: [String!]
+    "All values less than the given value."
+    lang_lt: String
+    "All values less than or equal the given value."
+    lang_lte: String
+    "All values that are not equal to given value."
+    lang_not: String
+    "All values not containing the given string."
+    lang_not_contains: String
+    "All values not ending with the given string."
+    lang_not_ends_with: String
+    "All values that are not contained in given list."
+    lang_not_in: [String!]
+    "All values not starting with the given string."
+    lang_not_starts_with: String
+    "All values starting with the given string."
+    lang_starts_with: String
+    org: OrgFilter
+    pages_every: PageFilter
+    pages_none: PageFilter
+    pages_some: PageFilter
+    text: String
+    "All values containing the given string."
+    text_contains: String
+    "All values ending with the given string."
+    text_ends_with: String
+    "All values greater than the given value."
+    text_gt: String
+    "All values greater than or equal the given value."
+    text_gte: String
+    "All values that are contained in given list."
+    text_in: [String!]
+    "All values less than the given value."
+    text_lt: String
+    "All values less than or equal the given value."
+    text_lte: String
+    "All values that are not equal to given value."
+    text_not: String
+    "All values not containing the given string."
+    text_not_contains: String
+    "All values not ending with the given string."
+    text_not_ends_with: String
+    "All values that are not contained in given list."
+    text_not_in: [String!]
+    "All values not starting with the given string."
+    text_not_starts_with: String
+    "All values starting with the given string."
+    text_starts_with: String
+    title: String
+    "All values containing the given string."
+    title_contains: String
+    "All values ending with the given string."
+    title_ends_with: String
+    "All values greater than the given value."
+    title_gt: String
+    "All values greater than or equal the given value."
+    title_gte: String
+    "All values that are contained in given list."
+    title_in: [String!]
+    "All values less than the given value."
+    title_lt: String
+    "All values less than or equal the given value."
+    title_lte: String
+    "All values that are not equal to given value."
+    title_not: String
+    "All values not containing the given string."
+    title_not_contains: String
+    "All values not ending with the given string."
+    title_not_ends_with: String
+    "All values that are not contained in given list."
+    title_not_in: [String!]
+    "All values not starting with the given string."
+    title_not_starts_with: String
+    "All values starting with the given string."
+    title_starts_with: String
+}
+
+input SectionSubscriptionFilter {
+    "Logical AND on all given filters."
+    AND: [SectionSubscriptionFilter!]
+    "Logical OR on all given filters."
+    OR: [SectionSubscriptionFilter!]
+    "The subscription event gets dispatched when it's listed in mutation_in"
+    mutation_in: [_ModelMutationType!]
+    node: SectionSubscriptionFilterNode
+    "The subscription event gets only dispatched when one of the updated fields names is included in this list"
+    updatedFields_contains: String
+    "The subscription event gets only dispatched when all of the field names included in this list have been updated"
+    updatedFields_contains_every: [String!]
+    "The subscription event gets only dispatched when some of the field names included in this list have been updated"
+    updatedFields_contains_some: [String!]
+}
+
+input SectionSubscriptionFilterNode {
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    image: ImageFilter
+    lang: String
+    "All values containing the given string."
+    lang_contains: String
+    "All values ending with the given string."
+    lang_ends_with: String
+    "All values greater than the given value."
+    lang_gt: String
+    "All values greater than or equal the given value."
+    lang_gte: String
+    "All values that are contained in given list."
+    lang_in: [String!]
+    "All values less than the given value."
+    lang_lt: String
+    "All values less than or equal the given value."
+    lang_lte: String
+    "All values that are not equal to given value."
+    lang_not: String
+    "All values not containing the given string."
+    lang_not_contains: String
+    "All values not ending with the given string."
+    lang_not_ends_with: String
+    "All values that are not contained in given list."
+    lang_not_in: [String!]
+    "All values not starting with the given string."
+    lang_not_starts_with: String
+    "All values starting with the given string."
+    lang_starts_with: String
+    org: OrgFilter
+    pages_every: PageFilter
+    pages_none: PageFilter
+    pages_some: PageFilter
+    text: String
+    "All values containing the given string."
+    text_contains: String
+    "All values ending with the given string."
+    text_ends_with: String
+    "All values greater than the given value."
+    text_gt: String
+    "All values greater than or equal the given value."
+    text_gte: String
+    "All values that are contained in given list."
+    text_in: [String!]
+    "All values less than the given value."
+    text_lt: String
+    "All values less than or equal the given value."
+    text_lte: String
+    "All values that are not equal to given value."
+    text_not: String
+    "All values not containing the given string."
+    text_not_contains: String
+    "All values not ending with the given string."
+    text_not_ends_with: String
+    "All values that are not contained in given list."
+    text_not_in: [String!]
+    "All values not starting with the given string."
+    text_not_starts_with: String
+    "All values starting with the given string."
+    text_starts_with: String
+    title: String
+    "All values containing the given string."
+    title_contains: String
+    "All values ending with the given string."
+    title_ends_with: String
+    "All values greater than the given value."
+    title_gt: String
+    "All values greater than or equal the given value."
+    title_gte: String
+    "All values that are contained in given list."
+    title_in: [String!]
+    "All values less than the given value."
+    title_lt: String
+    "All values less than or equal the given value."
+    title_lte: String
+    "All values that are not equal to given value."
+    title_not: String
+    "All values not containing the given string."
+    title_not_contains: String
+    "All values not ending with the given string."
+    title_not_ends_with: String
+    "All values that are not contained in given list."
+    title_not_in: [String!]
+    "All values not starting with the given string."
+    title_not_starts_with: String
+    "All values starting with the given string."
+    title_starts_with: String
+}
+
+input SectionimageImage {
+    caption: String!
+    description: String!
+    file: ImagefileFile
+    fileId: ID
+    lang: String!
+    org: ImageorgOrg
+    orgId: ID
+    page: ImagepagePage
+    pageId: ID
+    sections: [ImagesectionsSection!]
+    sectionsIds: [ID!]
+}
+
+input SectionorgOrg {
+    defaultFooter: OrgdefaultFooterFooter
+    defaultFooterId: ID
+    defaultHeader: OrgdefaultHeaderHeader
+    defaultHeaderId: ID
+    defaultLang: String
+    files: [OrgfilesFile!]
+    filesIds: [ID!]
+    footers: [OrgfootersFooter!]
+    footersIds: [ID!]
+    headers: [OrgheadersHeader!]
+    headersIds: [ID!]
+    images: [OrgimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    pages: [OrgpagesPage!]
+    pagesIds: [ID!]
+    sections: [OrgsectionsSection!]
+    sectionsIds: [ID!]
+    theme: String
+    title: String!
+    usersIds: [ID!]
+}
+
+input SectionpagesPage {
+    conclusion: String
+    footer: PagefooterFooter
+    footerId: ID
+    header: PageheaderHeader
+    headerId: ID
+    image: PageimageImage
+    imageId: ID
+    lang: String!
+    link: String!
+    menuChild: [PagemenuChildPage!]
+    menuChildIds: [ID!]
+    menuParent: PagemenuChildPage
+    menuParentId: ID
+    menuStatus: MenuStatus
+    org: PageorgOrg
+    orgId: ID
+    preamble: String
+    sections: [PagesectionsSection!]
+    sectionsIds: [ID!]
+    title: String!
+}
+
+input UpdateFile {
+    headers: [FileheadersHeader!]
+    headersIds: [ID!]
+    id: ID!
+    images: [FileimagesImage!]
+    imagesIds: [ID!]
+    name: String
+    org: FileorgOrg
+    orgId: ID
+}
+
+input UpdateFooter {
+    address: String
+    color: String
+    email: String
+    id: ID!
+    lang: String
+    org: FooterorgOrg
+    orgDef: FooterorgDefOrg
+    orgDefId: ID
+    orgId: ID
+    pages: [FooterpagesPage!]
+    pagesIds: [ID!]
+    phone: String
+    town: String
+}
+
+input UpdateHeader {
+    color: String
+    id: ID!
+    lang: String
+    logo: HeaderlogoFile
+    logoDescription: String
+    logoId: ID
+    org: HeaderorgOrg
+    orgDef: HeaderorgDefOrg
+    orgDefId: ID
+    orgId: ID
+    page: HeaderpagePage
+    pageId: ID
+    tagline: String
+}
+
+input UpdateImage {
+    caption: String
+    description: String
+    file: ImagefileFile
+    fileId: ID
+    id: ID!
+    lang: String
+    org: ImageorgOrg
+    orgId: ID
+    page: ImagepagePage
+    pageId: ID
+    sections: [ImagesectionsSection!]
+    sectionsIds: [ID!]
+}
+
+input UpdateOrg {
+    defaultFooter: OrgdefaultFooterFooter
+    defaultFooterId: ID
+    defaultHeader: OrgdefaultHeaderHeader
+    defaultHeaderId: ID
+    defaultLang: String
+    files: [OrgfilesFile!]
+    filesIds: [ID!]
+    footers: [OrgfootersFooter!]
+    footersIds: [ID!]
+    headers: [OrgheadersHeader!]
+    headersIds: [ID!]
+    id: ID!
+    images: [OrgimagesImage!]
+    imagesIds: [ID!]
+    name: String
+    pages: [OrgpagesPage!]
+    pagesIds: [ID!]
+    sections: [OrgsectionsSection!]
+    sectionsIds: [ID!]
+    theme: String
+    title: String
+    usersIds: [ID!]
+}
+
+input UpdatePage {
+    conclusion: String
+    footer: PagefooterFooter
+    footerId: ID
+    header: PageheaderHeader
+    headerId: ID
+    id: ID!
+    image: PageimageImage
+    imageId: ID
+    lang: String
+    link: String
+    menuChild: [PagemenuChildPage!]
+    menuChildIds: [ID!]
+    menuParent: PagemenuChildPage
+    menuParentId: ID
+    menuStatus: MenuStatus
+    org: PageorgOrg
+    orgId: ID
+    preamble: String
+    sections: [PagesectionsSection!]
+    sectionsIds: [ID!]
+    title: String
+}
+
+input UpdateSection {
+    id: ID!
+    image: SectionimageImage
+    imageId: ID
+    lang: String
+    org: SectionorgOrg
+    orgId: ID
+    pages: [SectionpagesPage!]
+    pagesIds: [ID!]
+    text: String
+    title: String
+}
+
+input UpdateUser {
+    id: ID!
+    orgs: [UserorgsOrg!]
+    orgsIds: [ID!]
+    role: Roles
+    username: String
+}
+
+input UserFilter {
+    "Logical AND on all given filters."
+    AND: [UserFilter!]
+    "Logical OR on all given filters."
+    OR: [UserFilter!]
+    auth0UserId: String
+    "All values containing the given string."
+    auth0UserId_contains: String
+    "All values ending with the given string."
+    auth0UserId_ends_with: String
+    "All values greater than the given value."
+    auth0UserId_gt: String
+    "All values greater than or equal the given value."
+    auth0UserId_gte: String
+    "All values that are contained in given list."
+    auth0UserId_in: [String!]
+    "All values less than the given value."
+    auth0UserId_lt: String
+    "All values less than or equal the given value."
+    auth0UserId_lte: String
+    "All values that are not equal to given value."
+    auth0UserId_not: String
+    "All values not containing the given string."
+    auth0UserId_not_contains: String
+    "All values not ending with the given string."
+    auth0UserId_not_ends_with: String
+    "All values that are not contained in given list."
+    auth0UserId_not_in: [String!]
+    "All values not starting with the given string."
+    auth0UserId_not_starts_with: String
+    "All values starting with the given string."
+    auth0UserId_starts_with: String
+    createdAt: DateTime
+    "All values greater than the given value."
+    createdAt_gt: DateTime
+    "All values greater than or equal the given value."
+    createdAt_gte: DateTime
+    "All values that are contained in given list."
+    createdAt_in: [DateTime!]
+    "All values less than the given value."
+    createdAt_lt: DateTime
+    "All values less than or equal the given value."
+    createdAt_lte: DateTime
+    "All values that are not equal to given value."
+    createdAt_not: DateTime
+    "All values that are not contained in given list."
+    createdAt_not_in: [DateTime!]
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    orgs_every: OrgFilter
+    orgs_none: OrgFilter
+    orgs_some: OrgFilter
+    role: Roles
+    "All values that are contained in given list."
+    role_in: [Roles!]
+    "All values that are not equal to given value."
+    role_not: Roles
+    "All values that are not contained in given list."
+    role_not_in: [Roles!]
+    updatedAt: DateTime
+    "All values greater than the given value."
+    updatedAt_gt: DateTime
+    "All values greater than or equal the given value."
+    updatedAt_gte: DateTime
+    "All values that are contained in given list."
+    updatedAt_in: [DateTime!]
+    "All values less than the given value."
+    updatedAt_lt: DateTime
+    "All values less than or equal the given value."
+    updatedAt_lte: DateTime
+    "All values that are not equal to given value."
+    updatedAt_not: DateTime
+    "All values that are not contained in given list."
+    updatedAt_not_in: [DateTime!]
+    username: String
+    "All values containing the given string."
+    username_contains: String
+    "All values ending with the given string."
+    username_ends_with: String
+    "All values greater than the given value."
+    username_gt: String
+    "All values greater than or equal the given value."
+    username_gte: String
+    "All values that are contained in given list."
+    username_in: [String!]
+    "All values less than the given value."
+    username_lt: String
+    "All values less than or equal the given value."
+    username_lte: String
+    "All values that are not equal to given value."
+    username_not: String
+    "All values not containing the given string."
+    username_not_contains: String
+    "All values not ending with the given string."
+    username_not_ends_with: String
+    "All values that are not contained in given list."
+    username_not_in: [String!]
+    "All values not starting with the given string."
+    username_not_starts_with: String
+    "All values starting with the given string."
+    username_starts_with: String
+}
+
+input UserSubscriptionFilter {
+    "Logical AND on all given filters."
+    AND: [UserSubscriptionFilter!]
+    "Logical OR on all given filters."
+    OR: [UserSubscriptionFilter!]
+    "The subscription event gets dispatched when it's listed in mutation_in"
+    mutation_in: [_ModelMutationType!]
+    node: UserSubscriptionFilterNode
+    "The subscription event gets only dispatched when one of the updated fields names is included in this list"
+    updatedFields_contains: String
+    "The subscription event gets only dispatched when all of the field names included in this list have been updated"
+    updatedFields_contains_every: [String!]
+    "The subscription event gets only dispatched when some of the field names included in this list have been updated"
+    updatedFields_contains_some: [String!]
+}
+
+input UserSubscriptionFilterNode {
+    auth0UserId: String
+    "All values containing the given string."
+    auth0UserId_contains: String
+    "All values ending with the given string."
+    auth0UserId_ends_with: String
+    "All values greater than the given value."
+    auth0UserId_gt: String
+    "All values greater than or equal the given value."
+    auth0UserId_gte: String
+    "All values that are contained in given list."
+    auth0UserId_in: [String!]
+    "All values less than the given value."
+    auth0UserId_lt: String
+    "All values less than or equal the given value."
+    auth0UserId_lte: String
+    "All values that are not equal to given value."
+    auth0UserId_not: String
+    "All values not containing the given string."
+    auth0UserId_not_contains: String
+    "All values not ending with the given string."
+    auth0UserId_not_ends_with: String
+    "All values that are not contained in given list."
+    auth0UserId_not_in: [String!]
+    "All values not starting with the given string."
+    auth0UserId_not_starts_with: String
+    "All values starting with the given string."
+    auth0UserId_starts_with: String
+    createdAt: DateTime
+    "All values greater than the given value."
+    createdAt_gt: DateTime
+    "All values greater than or equal the given value."
+    createdAt_gte: DateTime
+    "All values that are contained in given list."
+    createdAt_in: [DateTime!]
+    "All values less than the given value."
+    createdAt_lt: DateTime
+    "All values less than or equal the given value."
+    createdAt_lte: DateTime
+    "All values that are not equal to given value."
+    createdAt_not: DateTime
+    "All values that are not contained in given list."
+    createdAt_not_in: [DateTime!]
+    id: ID
+    "All values containing the given string."
+    id_contains: ID
+    "All values ending with the given string."
+    id_ends_with: ID
+    "All values greater than the given value."
+    id_gt: ID
+    "All values greater than or equal the given value."
+    id_gte: ID
+    "All values that are contained in given list."
+    id_in: [ID!]
+    "All values less than the given value."
+    id_lt: ID
+    "All values less than or equal the given value."
+    id_lte: ID
+    "All values that are not equal to given value."
+    id_not: ID
+    "All values not containing the given string."
+    id_not_contains: ID
+    "All values not ending with the given string."
+    id_not_ends_with: ID
+    "All values that are not contained in given list."
+    id_not_in: [ID!]
+    "All values not starting with the given string."
+    id_not_starts_with: ID
+    "All values starting with the given string."
+    id_starts_with: ID
+    orgs_every: OrgFilter
+    orgs_none: OrgFilter
+    orgs_some: OrgFilter
+    role: Roles
+    "All values that are contained in given list."
+    role_in: [Roles!]
+    "All values that are not equal to given value."
+    role_not: Roles
+    "All values that are not contained in given list."
+    role_not_in: [Roles!]
+    updatedAt: DateTime
+    "All values greater than the given value."
+    updatedAt_gt: DateTime
+    "All values greater than or equal the given value."
+    updatedAt_gte: DateTime
+    "All values that are contained in given list."
+    updatedAt_in: [DateTime!]
+    "All values less than the given value."
+    updatedAt_lt: DateTime
+    "All values less than or equal the given value."
+    updatedAt_lte: DateTime
+    "All values that are not equal to given value."
+    updatedAt_not: DateTime
+    "All values that are not contained in given list."
+    updatedAt_not_in: [DateTime!]
+    username: String
+    "All values containing the given string."
+    username_contains: String
+    "All values ending with the given string."
+    username_ends_with: String
+    "All values greater than the given value."
+    username_gt: String
+    "All values greater than or equal the given value."
+    username_gte: String
+    "All values that are contained in given list."
+    username_in: [String!]
+    "All values less than the given value."
+    username_lt: String
+    "All values less than or equal the given value."
+    username_lte: String
+    "All values that are not equal to given value."
+    username_not: String
+    "All values not containing the given string."
+    username_not_contains: String
+    "All values not ending with the given string."
+    username_not_ends_with: String
+    "All values that are not contained in given list."
+    username_not_in: [String!]
+    "All values not starting with the given string."
+    username_not_starts_with: String
+    "All values starting with the given string."
+    username_starts_with: String
+}
+
+input UserorgsOrg {
+    defaultFooter: OrgdefaultFooterFooter
+    defaultFooterId: ID
+    defaultHeader: OrgdefaultHeaderHeader
+    defaultHeaderId: ID
+    defaultLang: String
+    files: [OrgfilesFile!]
+    filesIds: [ID!]
+    footers: [OrgfootersFooter!]
+    footersIds: [ID!]
+    headers: [OrgheadersHeader!]
+    headersIds: [ID!]
+    images: [OrgimagesImage!]
+    imagesIds: [ID!]
+    name: String!
+    pages: [OrgpagesPage!]
+    pagesIds: [ID!]
+    sections: [OrgsectionsSection!]
+    sectionsIds: [ID!]
+    theme: String
+    title: String!
+    usersIds: [ID!]
+}
+
+
+scalar DateTime

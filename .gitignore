@@ -3,5 +3,6 @@ package-lock.json
 dist
 .idea
 node_modules
+.graphqlconfig
 *.swp
 *.swo
