@@ -1,7 +1,7 @@
 'use strict';
 const path = require('path');
 const webpack = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // require("babel-register");
 
@@ -25,7 +25,12 @@ const config = {
       {
         test: /\.tpl\.html$/,
         use: ['webpack-lodash-template-loader'],
-      }
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        use: ['raw-loader'],
+        exclude: /node_modules/,
+      },
     ],
   },
   plugins: [

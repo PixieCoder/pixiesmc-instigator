@@ -1,0 +1,12 @@
+query userQuery($auth0UserId: String!) {
+    User(auth0UserId: $auth0UserId) {
+        id
+        role
+        username
+        orgs {
+            id
+            name
+            title
+        }
+    }
+}

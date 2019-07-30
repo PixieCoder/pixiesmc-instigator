@@ -1,0 +1,15 @@
+mutation createUserMutation($idToken: String!, $username: String!) {
+    createUser(
+        authProvider: { auth0: { idToken: $idToken } }
+        username: $username
+    ) {
+        id
+        role
+        username
+        orgs {
+            id
+            name
+            title
+        }
+    }
+}

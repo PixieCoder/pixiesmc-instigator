@@ -1,22 +1,5 @@
 import inputDialog from '../compenents/inputDialog';
-
-const createUserMutation = `
-    mutation createUserMutation($idToken: String!, $username: String!) {
-        createUser(
-            authProvider: { auth0: { idToken: $idToken } }
-            username: $username
-        ) {
-            id
-            role
-            username
-            orgs {
-              id
-              name
-              title
-            }
-        }
-    }
-`;
+import createUserMutation from '../queries/createUserMutation.graphql';
 
 export default async function createUser(session) {
   const dialogResult = await inputDialog({
@@ -34,7 +17,7 @@ export default async function createUser(session) {
   const variables = {idToken: session.authentication.idToken, username};
 
   try {
-    return session.graphQLClient.request(createUserMutation, variables);
+    return await session.graphQLClient.request(createUserMutation, variables);
   } catch (error) {
     console.error(error);
     return null;
