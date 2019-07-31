@@ -1,6 +1,7 @@
 import { extractFormValues } from '../utils';
 import inputFn from './input.tpl.html';
 import inputDialogFn from './inputDialog.tpl.html';
+import style from './style.css';
 
 export default async function inputDialog(properties) {
   const formId = `form-${Math.floor(Math.random() * 100)}`;

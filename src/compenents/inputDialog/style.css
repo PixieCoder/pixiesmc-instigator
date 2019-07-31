@@ -1,0 +1,9 @@
+.input-dialog {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-dialog__item {
+    display: flex;
+    flex-direction: column;
+}

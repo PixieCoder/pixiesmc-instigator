@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import style from './style.css';
 import createSession from './actions/createSession';
 
 const main = document.getElementById('main');
